@@ -1,0 +1,34 @@
+[
+    {
+        "id":0,
+        "name":"Mundane"
+    },
+    {
+        "id":1,
+        "name":"Common"        
+    },
+    {
+        "id":2,
+        "name":"Uncommon"
+    },
+    {
+        "id":3,
+        "name":"Rare"
+    },
+    {
+        "id":4,
+        "name":"Very Rare"
+    },
+    {
+        "id":5,
+        "name":"Legendary"
+    },
+    {
+        "id":6,
+        "name":"Artifact"
+    },
+    {
+        "id":7,
+        "name":"Varies"
+    }
+]

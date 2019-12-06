@@ -1,0 +1,34 @@
+[
+    {
+        "id":0,
+        "name":"Armor"
+    },
+    {
+        "id":1,
+        "name":"Shield"        
+    },
+    {
+        "id":2,
+        "name":"Weapon"
+    },
+    {
+        "id":3,
+        "name":"Ring"
+    },
+    {
+        "id":4,
+        "name":"Amulet"
+    },
+    {
+        "id":5,
+        "name":"Boots"
+    },
+    {
+        "id":6,
+        "name":"Cape"
+    },
+    {
+        "id":7,
+        "name":"Other"
+    }
+]

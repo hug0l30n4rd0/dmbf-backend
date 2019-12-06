@@ -1,0 +1,3 @@
+INSERT INTO `tb_item` (`id`, `item_attunement`, `item_cursed`, `item_description`, `item_image`, `item_name`, `item_rarity`, `item_type`) VALUES 
+('1', b'1', b'1', 'This Red leather armor grants resistance to fire damage to it’s wearer, but also vulnerability to slashing and piercing damage. If the wearer is ever bleeding, the blood is absorbed by the armor and a sense of delight is detected by its wearer.', NULL, 'Demonskin Leather', '4', '4'), 
+('2', b'0', b'0', 'This glossy black weapon is designed to pierce the toughest shells. You gain a +1 bonus to attack and damage rolls with this weapon and any damage dealt by this weapon ignores resistance and immunity of the target.', NULL, 'Admantine Weapon', '5', '5');

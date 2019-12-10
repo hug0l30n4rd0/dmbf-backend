@@ -18,9 +18,11 @@ public class SpellCastingTimeConverter implements AttributeConverter<SpellCastin
 
 	@Override
 	public SpellCastingTime convertToEntityAttribute(Integer id) {
-		for(SpellCastingTime enumTipo : SpellCastingTime.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (SpellCastingTime enumTipo : SpellCastingTime.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

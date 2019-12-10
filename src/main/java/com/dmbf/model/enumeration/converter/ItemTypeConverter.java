@@ -18,9 +18,11 @@ public class ItemTypeConverter implements AttributeConverter<ItemType, Integer> 
 
 	@Override
 	public ItemType convertToEntityAttribute(Integer id) {
-		for(ItemType enumTipo : ItemType.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (ItemType enumTipo : ItemType.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

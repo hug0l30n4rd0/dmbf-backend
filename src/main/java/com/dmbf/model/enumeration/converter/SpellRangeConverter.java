@@ -19,9 +19,11 @@ public class SpellRangeConverter implements AttributeConverter<SpellRange, Integ
 
 	@Override
 	public SpellRange convertToEntityAttribute(Integer id) {
-		for(SpellRange enumTipo : SpellRange.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (SpellRange enumTipo : SpellRange.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

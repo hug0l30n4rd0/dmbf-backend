@@ -6,23 +6,18 @@ package com.dmbf.model.enumeration;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author hugosilva
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum SpellRange {
-	SELF		(1,"Self"),
-	TOUCH		(2,"Touch"),
-	RANGED		(3,"Ranged"),
-	SIGHT		(4,"Sight"),
-	UNLIMITED	(5,"Unlimited"),
-	SPECIAL		(6,"Special");
+public enum RangeMetric {
+	FEET			(1,"Feet"),
+	CONJURATION		(2,"Mile");
 	
 	
-	private SpellRange(Integer id, String name) {
+	private RangeMetric(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -44,8 +39,8 @@ public enum SpellRange {
 	}
 	
 	@JsonCreator
-    public static SpellRange forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
-        for (SpellRange currEnum : SpellRange.values()) {
+    public static RangeMetric forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
+        for (RangeMetric currEnum : RangeMetric.values()) {
             if (Double.compare(currEnum.id, id) == 0 && currEnum.name.equals(name)) {
                 return currEnum;
             }

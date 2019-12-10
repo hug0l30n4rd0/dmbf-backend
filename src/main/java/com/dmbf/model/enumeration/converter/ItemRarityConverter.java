@@ -18,9 +18,11 @@ public class ItemRarityConverter implements AttributeConverter<ItemRarity, Integ
 
 	@Override
 	public ItemRarity convertToEntityAttribute(Integer id) {
-		for(ItemRarity enumTipo : ItemRarity.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (ItemRarity enumTipo : ItemRarity.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

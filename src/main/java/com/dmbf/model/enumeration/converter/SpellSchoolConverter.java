@@ -18,9 +18,11 @@ public class SpellSchoolConverter implements AttributeConverter<SpellSchool, Int
 
 	@Override
 	public SpellSchool convertToEntityAttribute(Integer id) {
-		for(SpellSchool enumTipo : SpellSchool.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (SpellSchool enumTipo : SpellSchool.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

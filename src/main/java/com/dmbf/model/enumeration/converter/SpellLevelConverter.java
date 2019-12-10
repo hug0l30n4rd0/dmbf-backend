@@ -18,9 +18,11 @@ public class SpellLevelConverter implements AttributeConverter<SpellLevel, Integ
 
 	@Override
 	public SpellLevel convertToEntityAttribute(Integer id) {
-		for(SpellLevel enumTipo : SpellLevel.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (SpellLevel enumTipo : SpellLevel.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

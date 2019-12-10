@@ -18,9 +18,9 @@ public enum SpellCastingTime {
 	BONUS_ACTION	(2,"Bonus Action"),
 	HOUR			(3,"Hour"),
 	MINUTE			(4,"Minute"),
-	NO_ACTION		(5,"No Action"),
-	REACTION		(6,"Reaction"),
-	SPECIAL			(7,"Special");
+	SPECIAL			(5,"Special"),
+	NO_ACTION		(6,"No Action"),
+	REACTION		(7,"Reaction");
 	
 	
 	private SpellCastingTime(Integer id, String name) {

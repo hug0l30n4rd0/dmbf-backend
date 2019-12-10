@@ -18,9 +18,11 @@ public class SpellDurationConverter implements AttributeConverter<SpellDuration,
 
 	@Override
 	public SpellDuration convertToEntityAttribute(Integer id) {
-		for(SpellDuration enumTipo : SpellDuration.values()) {
-			if (id.equals(enumTipo.getId())) {
-				return enumTipo;
+		if (id != null) {
+			for (SpellDuration enumTipo : SpellDuration.values()) {
+				if (id.equals(enumTipo.getId())) {
+					return enumTipo;
+				}
 			}
 		}
 		return null;

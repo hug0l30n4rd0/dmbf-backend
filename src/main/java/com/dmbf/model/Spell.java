@@ -32,8 +32,6 @@ import lombok.Setter;
  *
  */
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @Entity(name = "tb_spell")
 public class Spell extends BaseModel {
@@ -107,6 +105,11 @@ public class Spell extends BaseModel {
 	@ManyToOne
 	@JoinColumn(name="source_id")
 	private Source source;
+	
+	
+	public Long getCod() {
+		return this.getId();
+	} 
 	
 	
 	

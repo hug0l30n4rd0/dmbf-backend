@@ -22,6 +22,12 @@ import lombok.Setter;
 @Entity(name = "tb_source")
 public class Source extends BaseModel {
 	
-	@Column(name = "source_name", nullable = true)
+	@Column(name = "source_name", nullable = false)
 	private String name;
+	
+	@Column(name = "source_shortname", nullable = false, length = 5)
+	private String shortName;
+	
+	@Column(name = "source_official", nullable = false)
+	private Boolean isOfficial;
 }

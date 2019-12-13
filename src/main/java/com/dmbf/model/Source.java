@@ -16,8 +16,6 @@ import lombok.Setter;
  *
  */
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 @Entity(name = "tb_source")
 public class Source extends BaseModel {

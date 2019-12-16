@@ -17,10 +17,10 @@ import com.auth0.spring.security.api.JwtWebSecurityConfigurer;
  * @author hugosilva
  *
  */
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@Order(1000)
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Order(1000)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value(value = "${auth0.apiAudience}")
     private String apiAudience;

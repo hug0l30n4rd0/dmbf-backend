@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: dmbf
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: hugo.dasilva
+Built-By: hugosilva
 Implementation-Vendor-Id: dmbf
-Build-Jdk: 1.8.0_181
+Build-Jdk: 1.8.0_222
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/dmbf
 Created-By: Maven Integration for Eclipse

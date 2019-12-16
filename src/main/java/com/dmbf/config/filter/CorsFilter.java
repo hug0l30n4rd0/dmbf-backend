@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dmbf.config;
+package com.dmbf.config.filter;
 
 import java.io.IOException;
 

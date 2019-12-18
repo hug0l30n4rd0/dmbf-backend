@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum RangeMetric {
-	FEET			(1,"Feet"),
-	CONJURATION		(2,"Mile");
+	FEET		(1,"Feet"),
+	MILE		(2,"Mile");
 	
 	
 	private RangeMetric(Integer id, String name) {
@@ -39,9 +39,9 @@ public enum RangeMetric {
 	}
 	
 	@JsonCreator
-    public static RangeMetric forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
-        for (RangeMetric currEnum : RangeMetric.values()) {
-            if (Double.compare(currEnum.id, id) == 0 && currEnum.name.equals(name)) {
+    public static RangeMetric forValues(@JsonProperty("id") String id) {
+		for (RangeMetric currEnum : RangeMetric.values()) {
+            if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }
         }

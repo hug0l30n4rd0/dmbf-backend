@@ -45,9 +45,9 @@ public enum SpellCastingTime {
 	}
 	
 	@JsonCreator
-    public static SpellCastingTime forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
-        for (SpellCastingTime currEnum : SpellCastingTime.values()) {
-            if (Double.compare(currEnum.id, id) == 0 && currEnum.name.equals(name)) {
+    public static SpellCastingTime forValues(@JsonProperty("id") String id) {
+		for (SpellCastingTime currEnum : SpellCastingTime.values()) {
+            if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }
         }

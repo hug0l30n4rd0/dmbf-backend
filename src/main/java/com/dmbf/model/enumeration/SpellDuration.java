@@ -43,9 +43,9 @@ public enum SpellDuration {
 	}
 	
 	@JsonCreator
-    public static SpellDuration forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
-        for (SpellDuration currEnum : SpellDuration.values()) {
-            if (Double.compare(currEnum.id, id) == 0 && currEnum.name.equals(name)) {
+    public static SpellDuration forValues(@JsonProperty("id") String id) {
+		for (SpellDuration currEnum : SpellDuration.values()) {
+            if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }
         }

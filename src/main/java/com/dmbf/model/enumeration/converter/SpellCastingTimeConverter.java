@@ -13,7 +13,7 @@ public class SpellCastingTimeConverter implements AttributeConverter<SpellCastin
 
 	@Override
 	public Integer convertToDatabaseColumn(SpellCastingTime theEnum) {
-		return theEnum.getId();
+		return theEnum == null ? null : theEnum.getId();
 	}
 
 	@Override

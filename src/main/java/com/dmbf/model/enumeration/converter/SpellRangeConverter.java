@@ -14,7 +14,7 @@ public class SpellRangeConverter implements AttributeConverter<SpellRange, Integ
 
 	@Override
 	public Integer convertToDatabaseColumn(SpellRange theEnum) {
-		return theEnum.getId();
+		return theEnum == null ? null : theEnum.getId();
 	}
 
 	@Override

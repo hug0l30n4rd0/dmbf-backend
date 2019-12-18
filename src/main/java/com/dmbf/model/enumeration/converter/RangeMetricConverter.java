@@ -13,7 +13,7 @@ public class RangeMetricConverter implements AttributeConverter<RangeMetric, Int
 
 	@Override
 	public Integer convertToDatabaseColumn(RangeMetric theEnum) {
-		return theEnum.getId();
+		return theEnum == null ? null : theEnum.getId();
 	}
 
 	@Override

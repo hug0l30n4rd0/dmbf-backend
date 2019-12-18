@@ -13,7 +13,7 @@ public class SpellDurationConverter implements AttributeConverter<SpellDuration,
 
 	@Override
 	public Integer convertToDatabaseColumn(SpellDuration theEnum) {
-		return theEnum.getId();
+		return theEnum == null ? null : theEnum.getId();
 	}
 
 	@Override

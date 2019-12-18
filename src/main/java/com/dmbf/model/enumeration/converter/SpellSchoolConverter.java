@@ -13,7 +13,7 @@ public class SpellSchoolConverter implements AttributeConverter<SpellSchool, Int
 
 	@Override
 	public Integer convertToDatabaseColumn(SpellSchool theEnum) {
-		return theEnum.getId();
+		return theEnum == null ? null : theEnum.getId();
 	}
 
 	@Override
@@ -27,5 +27,7 @@ public class SpellSchoolConverter implements AttributeConverter<SpellSchool, Int
 		}
 		return null;
 	}
+	
+	
 
 }

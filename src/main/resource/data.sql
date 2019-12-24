@@ -6,7 +6,8 @@ INSERT INTO `tb_source` (`id`, `source_name`, `source_shortname`,`source_officia
 ('5', 'Xanathar\'s Guide To Everything', 'XGtE', true), 
 ('6', 'Sword Coast Adventurer\'s Guide', 'SCAG', true), 
 ('7', 'Mordenkainen\'s Tome of Foes', 'MTF', true), 
-('8', 'Volo\'s Guide to Monsters', 'VGM', true); 
+('8', 'Volo\'s Guide to Monsters', 'VGM', true),
+('9', 'Iantarkel\'s Compendium', 'IC', false); 
 
 INSERT INTO `tb_spell` (`id`, `spell_area`, `spell_casting_time`, `spell_casting_value`, `spell_components`, `spell_description`, `spell_duration`, `spell_duration_type`, `spell_duration_value`, `spell_is_concentration`, `spell_is_material`, `spell_is_ritual`, `spell_is_somatic`, `spell_is_verbal`, `spell_level`, `spell_name`, `spell_range`, `spell_range_distance`, `spell_range_metric`, `spell_school`, `spell_source_page`, `source_id`) VALUES
 (1, NULL, 1, '1', 'a bit of sponge', 'You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren’t affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical plants in the area that aren’t creatures, such as trees and shrubs, wither and die instantly.', 2, NULL, NULL, b'0', b'1', b'0', b'1', b'1', 8, 'Abi-Dalzim’s Horrid Wilting', 3, 150, 1, 7, 15, 4),

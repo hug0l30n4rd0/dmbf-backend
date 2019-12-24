@@ -56,11 +56,6 @@ public abstract class BaseModel  implements Serializable {
 		this.id = id;
 	}
 	
-	public Long getCod() {
-		return this.getId();
-	} 
-	
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj != null && this.getClass().equals(obj.getClass())) {

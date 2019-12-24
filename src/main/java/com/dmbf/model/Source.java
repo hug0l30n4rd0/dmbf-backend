@@ -28,4 +28,8 @@ public class Source extends BaseModel {
 	
 	@Column(name = "source_official", nullable = false)
 	private Boolean isOfficial;
+	
+	public Source(Long id) {
+		this.setId(id);
+	}
 }

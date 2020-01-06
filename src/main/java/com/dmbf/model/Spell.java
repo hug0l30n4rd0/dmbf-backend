@@ -3,11 +3,14 @@
  */
 package com.dmbf.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -99,18 +102,17 @@ public class Spell extends BaseModel {
 	@Column(name = "spell_is_concentration", nullable = false)
 	private Boolean isConcentration;
 	
-
 	@Column(name = "spell_source_page", nullable = true)
 	private Integer sourcePage;
-	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="source_id", nullable=false)
 	@RestResource(exported = false)
 	private Source source;
 	
-		
-
+	@ManyToMany(mappedBy="allSpells")
+	private List<GameClass> gameClasses;
 	
+
 	
 }

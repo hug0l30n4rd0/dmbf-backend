@@ -33,7 +33,6 @@ public enum SpellLevel {
 	private Integer id;
 	private String name;
 	
-//	@JsonValue
 	public Integer getId() {
 		return id;
 	}
@@ -47,9 +46,9 @@ public enum SpellLevel {
 	}
 	
 	@JsonCreator
-    public static SpellLevel forValues(@JsonProperty("id") Integer id, @JsonProperty("name") String name) {
+    public static SpellLevel forValues(@JsonProperty("id") String id) {
         for (SpellLevel currEnum : SpellLevel.values()) {
-            if (Double.compare(currEnum.id, id) == 0 && currEnum.name.equals(name)) {
+        	 if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }
         }

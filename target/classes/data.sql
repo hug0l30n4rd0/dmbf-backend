@@ -9,6 +9,21 @@ INSERT INTO `tb_source` (`id`, `source_name`, `source_shortname`,`source_officia
 ('8', 'Volo\'s Guide to Monsters', 'VGM', true),
 ('9', 'Guia de Campanha de Iantarkel', 'GCI', false); 
 
+INSERT INTO `tb_gameclass` (`id`, `class_name`, `class_shortname`) VALUES
+(1, 'Barbarian', 'BB'),
+(2, 'Bard', 'BD'),
+(3, 'Cleric', 'CL'),
+(4, 'Druid', 'DR'),
+(5, 'Fighter', 'FG'),
+(6, 'Monk', 'MK'),
+(7, 'Paladin', 'PL'),
+(8, 'Ranger', 'RN'),
+(9, 'Rogue', 'RG'),
+(10, 'Sorcerer', 'SR'),
+(11, 'Warlock', 'WL'),
+(12, 'Wizard', 'WZ');
+
+
 INSERT INTO `tb_spell` (`id`, `spell_area`, `spell_casting_time`, `spell_casting_value`, `spell_components`, `spell_description`, `spell_duration`, `spell_duration_type`, `spell_duration_value`, `spell_is_concentration`, `spell_is_material`, `spell_is_ritual`, `spell_is_somatic`, `spell_is_verbal`, `spell_level`, `spell_name`, `spell_range`, `spell_range_distance`, `spell_range_metric`, `spell_school`, `spell_source_page`, `source_id`) VALUES
 (1, NULL, 1, '1', 'a bit of sponge', 'You draw the moisture from every creature in a 30-foot cube centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. Constructs and undead aren’t affected, and plants and water elementals make this saving throw with disadvantage. A creature takes 12d8 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical plants in the area that aren’t creatures, such as trees and shrubs, wither and die instantly.', 2, NULL, NULL, b'0', b'1', b'0', b'1', b'1', 8, 'Abi-Dalzim’s Horrid Wilting', 3, 150, 1, 7, 15, 4),
 (2, NULL, 7, '1', NULL, '1 Reaction, which you take when you take acid, cold, fire, lightning, or thunder damageThe spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.', 0, 1, 1, b'0', b'0', b'0', b'1', b'0', 1, 'Absorb Elements', 1, NULL, NULL, 1, 15, 4),
@@ -480,8 +495,918 @@ INSERT INTO `tb_spell` (`id`, `spell_area`, `spell_casting_time`, `spell_casting
 (460, NULL, 1, '1', NULL, 'You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range.Until the spell ends, a creature that enters the spell’s area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can’t speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such creatures can be evasive in its answers as long as it remains within the boundaries of the truth.', 0, 2, 10, b'0', b'0', b'0', b'1', b'1', 2, 'Zone of Truth', 3, 60, 1, 4, 289, 1),
 (461, NULL, 1, '1', NULL, 'You have resistance to acid, cold, fire, lightning, and thunder damage for the spell’s duration.When you take damage of one of those types, you can use your reaction to gain immunity to that typeof damage, including against the triggering damage. If you do so, the resistances end, and you have the immunity until the end of your next turn, at which time the spell ends.', 1, 2, 1, b'1', b'0', b'0', b'1', b'1', 6, 'Primordial Ward', 1, NULL, NULL, 1, 21, 4);
 /* homebrews */
-INSERT INTO `tb_spell` (`id`, `spell_area`, `spell_casting_time`, `spell_casting_value`, `spell_components`, `spell_description`, `spell_duration`, `spell_duration_type`, `spell_duration_value`, `spell_is_concentration`, `spell_is_material`, `spell_is_ritual`, `spell_is_somatic`, `spell_is_verbal`, `spell_level`, `spell_name`, `spell_range`, `spell_range_distance`, `spell_range_metric`, `spell_school`, `spell_source_page`, `source_id`) VALUES 
-(462, NULL, '1', '1', '', 'Você toca uma aljava com ao menos 1 flecha ou Dardo. Você transmuta sua Aljava e as munições dentro dela no momento da conjuração, permitindo que ao sacar uma munição ela assume uma das Formas da Besta. Ao conjurar a magia você escolhe imediatamente uma Forma da Besta, e esta forma determinará o efeito magico ativo na munição sacada desta aljava. Depois de escolher uma forma, você poderá trocá-la apenas no seu próximo turno, utilizando uma Ação de Bônus para alterar sua forma.\r\nO efeito magico acaba na munição acertando ou errando o alvo, ou quando o efeito da Forma da Besta terminar. A Magia acaba na Aljava quando você sacar 12 munições.\r\n\r\nÁguia. Ao ser atirada esta munição ganha a forma uma águia etérea, quase imperceptível, que voará por até 1d4 minutos quando voltará ao normal caindo ao chão. Enquanto esta Águia estiver no ar, o conjurador poderá trocar seus sentidos pelos da criatura, enxergando e escutando apenas pelos ouvidos etéreos. A águia pode ser percebida com um teste de sabedoria (Perception) dificuldade (DC) 18. \r\n\r\nBaleia Narval. Esta munição aparenta ter um enorme ponta fantasma. Ao atirar contra um alvo a frente de outra criatura, se o resultado da sua rolagem de ataque  acertar também a criatura em até 5ft do alvo original, a ponta fantasma perfura a criatura atrás de seu alvo, acertando duas criaturas com apenas um ataque. Role os danos separadamente, como se tivesse realizado um ataque para cada. \r\n\r\nCarneiro. A munição acerta com uma força brutal. Ao acertar o alvo com esta munição, ele recebe 1d6 de dano de força extra e precisa passar num Saving Throw de Força. Se falhar o alvo é empurrado 10ft (2sq ou 3m).\r\n\r\nFalcão. A munição dança no ar antes de acertar o alvo. Ao atacar com esta munição você ignora as penalidades de cobertura, e consegue atacar além da distância normal da arma sem penalidades, além de causar 1d4 de dano Extra.\r\n\r\nPolvo. Esta munição explode ao impacto, liberando uma nuvem negra de fumaça magica, numa área de 20 ft (4sq ou 6m) ao redor do ponto ou alvo acertado. Qualquer criatura dentro desta área fica pesadamente obscura, por 1d6 turnos.', '4', '3', '1', b'1', b'0', b'0', b'1', b'0', '3', 'Aljava das Bestas', '2', NULL, '1', '8', '84', '9');
+INSERT INTO `tb_spell` (`id`, `spell_area`, `spell_casting_time`, `spell_casting_value`, `spell_components`, `spell_description`, `spell_duration`, `spell_duration_type`, `spell_duration_value`, `spell_is_concentration`, `spell_is_material`, `spell_is_ritual`, `spell_is_somatic`, `spell_is_verbal`, `spell_level`, `spell_name`, `spell_range`, `spell_range_distance`, `spell_range_metric`, `spell_school`, `spell_source_page`, `source_id`) VALUES
+(488, NULL, 1, '1', 'Um espelho de prata e Água benta', 'Você protege uma criatura dentro de 30 ft (6sq ou 9m) dos perigos do campo de batalha.\n\nAté que a Magia acabe, qualquer criatura que escolher a criatura protegida como alvo de um ataque ou magia nociva, deve primeiro fazer um Saving throw de Sabedoria. Em uma falha, a criatura fica atordoada até o final do turno.\n\nAdicionalmente, as criaturas protegidas pelo Santuário Maior, tem vantagens nos saving throws contra efeitos em área que possam causar dano.\n\nA magia acaba se a criatura protegida atacar ou conjurar uma magia que afete uma criatura inimiga.', 4, 2, 1, b'0', b'1', b'0', b'1', b'1', 4, 'Santuário Maior', 3, 30, 1, 1, 97, 9),
+(487, NULL, 3, '8', '9 gotas de sangue do conjurador, uma poção de Superior Healing e um diamante em pó no valor de 500 peças de ouro que a magia consome', 'O Conjurador derrama o pó de diamante e uma gota de seu sangue no conteúdo de uma poção de Superior Healing, deixando mais uma gota de sangue cair a cada hora de conjuração, ligando sua força vital ao líquido desta poção, transformando-a em uma poção de Ruína Corpórea, tornando quem a beber o alvo desta magia.\n\nCom o mesmo cheiro e gosto de uma Superior Healing, a poção de Ruína Corpórea fica ativa por apenas 5 dias, apodrecendo e perdendo seu efeito posteriormente. Enquanto ativa, a poção pode ser servida a uma criatura, que ao tomá-la precisará realizar um saving throw de Constituição, ou será submetido aos efeitos da Ruína Corpórea de Alastor, e terá sua vitalidade ligada ao conjurador, servindo para ele como uma fonte de vida por 30 dias. Além de sofrer 1d4 de dano necrótico por dia.\n\nPela duração da magia o conjurador pode usar uma Ação de Bônus para consumir 8d4+8 da vida do alvo para se curar.\n\nAlém disso, na primeira vez em que o conjurador receber dano que reduza seus pontos de vida a 0, a magia consome imediatamente os pontos de vida que o conjurador consiga recuperar sem ultrapassar seu ponto de vida máximo, encerrando a magia mesmo que não tenha reduzido os pontos de vida do alvo a 0. Se a magia ainda estiver em efeito quando o conjurador for sujeitado a algum efeito que o mataria imediatamente sem causar dano, o efeito ao invés disso é negado, e o alvo tem seus pontos de vida reduzidos a 0.\n\nSe o alvo for reduzido a 0 por qualquer efeito causado por esta magia, a criatura precisa passar num saving throw de constituição com desvantagem ou morre imediatamente.\n\nO conjurador pode usar uma ação para acabar a magia sem matar o alvo a qualquer momento dentro de sua duração. Apenas Greater restoration ou Wish pode remover esta magia.', 4, 4, 30, b'0', b'1', b'0', b'1', b'1', 9, 'Ruína Corpórea de Alastor', 6, NULL, 1, 4, 96, 9),
+(486, NULL, 3, '2', 'Uma parte do corpo de ao menos 2,5 cm³, um Frasco de cristal que custe ao menos 1.500 peças de ouro, e um diamante de ao menos 10.000 peças de ouro que a magia consome', 'Você toca uma criatura que esteja morta por no máximo 500 anos, e que não tenha morrido de velhice. Você ecoa sua voz pelos planos a procura da alma desta criatura, se a alma não foi destruída, está livre, você pode tentar forçá-la a deixar o local onde estiver, seja ele qual for, e prende-la no frasco de cristal. A alma da criatura deve então realizar um saving throw de sabedoria, que será alterado pelo quão bem você e o alvo se conhecem, e se ele está disposto a ser trazido ao plano material.\n\n* VER TABELA 34 – 1 DE ALMA DE ALASTOR – MODIFICADORES DO SAVING THROW no Guia de Campanha de Iantarkel *\n\nEm um sucesso, a magia acaba, e esta alma não pode ser submetida a esta magia por 5 anos. \n\nEm uma falha, ou permissão, a alma da criatura retorna ao mundo material entrando no frasco de cristal ficando presa nele até que o cristal seja quebrado, libertando a alma.\n\nUma alma recuperada por esta magia, e que ainda esteja presa no Frasco de Cristal, pode ser usada como alvo para a magia Soul Cage, no momento em que o frasco quebrar. Além disso enquanto ainda estiver presa no Frasco, a alma pode ser alvo de True Resurrection, como se tivesse morrido a menos de 200 anos.', 2, NULL, NULL, b'0', b'1', b'0', b'1', b'1', 9, 'Recuperação de Alma de Alastor', 2, NULL, 1, 1, 95, 9),
+(485, NULL, 1, '1', 'UM item que pertença ao alvo, Água benta', 'Você envia um de seus Aliados para o Plano Astral, onde ele poderá recuperar-se por um tempo antes de voltar a batalha. Enquanto estiver lá, o alvo poderá gastar um Dado de Vida, para se curar com um mínimo de resultado igual a metade do modificador de Habilidade de Conjurador (Spellcasting Ability modifier), arredondado para cima. A magia acaba se você interromper a magia, ou se o alvo escolher voltar. Ao final da magia, o alvo reaparece no espaço em que ocupava antes de ser  enviado ao refúgio. Caso o espaço esteja ocupado, o alvo retornará, para um espaço desocupado mais próximo.', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 2, 'Refúgio Astral', 3, 60, 1, 1, 94, 9),
+(484, NULL, 1, '1', '', 'Você aumenta seus sentidos e seu foco em uma área definida por você, ignorando todo o resto ao seu redor. Escolha um cone de 30ft (6sq ou 9m) centrado em você, fora desta área você é considerado para quaisquer efeitos cego e surdo, porém cada criatura que comece seu turno ou entre na área até o início do seu próximo turno, fica sujeito a um ataque com arma seu. Se acertar os ataques, você causa 1d6 de dano extra.\n', 4, 1, 1, b'1', b'0', b'0', b'1', b'1', 2, 'Rastreador', 1, NULL, 1, 3, 94, 9),
+(483, NULL, 4, '10', 'Uma estatueta de uma criatura esculpida em marfim e decorada com pedras preciosas no valor de pelo menos 1.500 peças de ouro', 'Escolha uma magia de nível 5 ou menor, que você possa conjurar, que tenha um tempo de Casting de 1 ação, e que você possa conjurar em outra criatura, para ser a Magia Preventiva.\n\nVocê conjura a Magia Preventiva, como parte da conjuração desta magia, gastando os Slots de Magia para as duas. Mas a Magia Preventiva não inicia seu efeito, ao invés disso, ela iniciará seu efeito quando um certo gatilho acontecer. Você descreve esta circunstância quando conjurar as magias. Exemplo: Você conjura Water Breathing como Magia Preventiva, e estipula que ela iniciará seu efeito, se a criatura protegida for envolvida por água ou líquido similar.\n\nQuerendo ou não, a Magia Preventiva inicia imediatamente após o gatilho acontecer pela primeira vez. E então a magia Proteção Preventiva de Anetett acaba.\n\nA Magia Preventiva afeta apenas seu alvo, mesmo que normalmente ela possa afetar outros. Você pode usar apenas uma Magia de Proteção Preventiva de Anetett por vez, se você conjurar esta magia novamente, o efeito e alvo da primeira magia mudam para a nova conjuração. Além disso, a magia acaba no seu alvo, se o componente material deixar de estar com você em algum momento.', 4, 4, 10, b'0', b'1', b'0', b'1', b'1', 7, 'Proteção Preventiva de Anetett', 2, NULL, 1, 5, 94, 9),
+(482, NULL, 1, '1', 'Prata em pó no valor de 100 peças de ouro que a magia consome', 'Você canaliza toda a fúria de sua divindade em seu corpo, emitindo luz brilhante de todo seu corpo, num raio de 5 ft (1sq ou 1,5m), e penumbra por mais 5ft além disso.\n\nAté a magia acabar, você ganha +1 na Classe de Armadura (CA), resistência a todo tipo de dano, adiciona  1d4 em suas rolagens de ataque e saving throws e ganha uma ação para realizar um único ataque extra com arma por turno. Além disso, Fiends e Mortos-vivos, tem desvantagem nos ataques quando imersos na luz brilhante de seu corpo.\n\nAdicionalmente, uma vez por turno, com sua Ação de Bônus, você pode curar uma criatura dentro de 30 ft (6sq ou 9m) de você em 1d4 + modificador de Habilidade de Conjurador (Spellcasting Ability modifier).', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 0, 'Personificação Divina de Johnson', 1, NULL, 1, 8, 93, 9),
+(481, NULL, 1, '1', 'Perfume de no mínimo 10 peças de ouro, que é consumido pela magia', 'Você cria uma nevoa azulada feita com perfume, que cobre uma área de 20 ft (4sq ou 6m) de raio em um ponto a sua escolha dentro do alcance da magia. Até o final da magia, ou até que a nevoa seja dispersa por um vento forte, quaisquer criaturas dentro da área tem a mente nublada, sofrendo desvantagem nos saving throws de Sabedoria e Inteligência.\n\nAntes que uma criatura dentro da nevoa tente conjurar uma magia, ela precisa rolar um saving throw de Inteligência, se falhar a criatura esquece o que estava planejando, ficando impedida de conjurar uma magia neste turno, ficando livre, no entanto para utilizar sua ação para outros feitos. Além disso, qualquer criatura que estiver concentrando numa magia e começar seu turno dentro da área, ou entrar nela, precisa realizar um teste de concentração, ou a magia cessa.', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 4, 'Névoa Mental', 3, 60, 1, 4, 93, 9),
+(480, NULL, 1, '1', 'Duas moedas iguais', 'Você cria um link entre as duas moedas em sua mão, transformando-as em um aparato de escuta, onde uma das moedas se torna um transmissor, e a outra o receptor.\n\nQuando você colocar a moeda Receptora aos ouvidos, você poderá escutar tudo que for dito dentro de 10 ft (2sq ou 3m) de raio de onde a moeda Transmissora for deixada, desde que as moedas estejam dentro de 1500 ft (300sq ou 450m) de distância uma da outra. A magia acaba se você perder a concentração ou conjurá-la novamente.\n\nEm Níveis Superiores. Quando conjurar esta magia usando um Slot de Magia de nível 3 ou superior, a distância de escuta entre as moedas aumenta em 250ft (50sq ou 75m) e o tempo em 1 hora para cada Slot de magia acima do nível 3.', 4, 3, 1, b'1', b'1', b'0', b'1', b'1', 2, 'Moeda de Escuta', 2, NULL, 1, 3, 93, 9),
+(479, NULL, 2, '1', '', 'Você escolhe uma criatura dentro do alcance da magia como sua Marca Divina. Até a magia acabar você causa 1d6 de dano radiante extra no alvo sempre que você o acertar com um ataque com arma. Além disso sempre que você causar este dano extra no alvo, ele sofrerá desvantagem na próxima rolagem de ataque que não tenha você como alvo.', 4, 2, 1, b'1', b'0', b'0', b'0', b'1', 1, 'Marca Divina', 3, 90, 1, 4, 93, 9),
+(478, NULL, 1, '1', '', 'Você concentra energia divina dentro das suas mãos e a explode em uma linha de 30 ft (6sq ou 9m) de você. Role um ataque magico para cada criatura dentro da linha de efeito, se acertar sua lança causará 1d6 de dano radiante ou Necrótico.\n\nEm Níveis Superiores. Esta magia aumenta seu dano para 2d6 quando você chegar ao nível 5, para 3d6 no nível 11, e 4d6 quando chegar ao nível 17.', 2, NULL, NULL, b'0', b'0', b'0', b'1', b'1', 0, 'Lança Espiritual', 1, NULL, 1, 5, 92, 9),
+(477, NULL, 2, '1', 'Água Benta', 'Sua presença e palavras inspiram os seus companheiros a superarem suas dificuldades. Você escolhe uma criatura afetada por uma condição, que imponha um saving throw para superá-la, e permite que o alvo utilize sua Ação de Reação para rolar o saving throw imediatamente, com um bônus igual ao seu Modificador de Habilidade de Conjuração (Spellcasting Ability Modifier).\n\nEm Níveis Superiores. Ao conjurar esta magia usando um Slot de Magia de nível 4 ou superior, você pode escolher uma criatura a mais para cada nível acima do nível 3.\n', 2, NULL, NULL, b'0', b'1', b'0', b'1', b'1', 3, 'Inspiração Divina', 3, 30, 1, 1, 92, 9),
+(476, NULL, 1, '1', '', 'Você emite um Grito, aumentado magicamente para altura ensurdecedora, que pode ser escutada em até 1000 ft (200sq ou 300m) de distância. Cada criatura dentro de 20 ft (4sq ou 6m) de você precisará passar num saving throw de Constituição, ou sofrerá 3d6 de dano de Thunder, e ficará surdo por até 1d4 rodadas em uma falha, ou metade do dano em um sucesso.\n\nObjetos feitos de materiais inorgânicos, como pedra, cristal, ou metal tem desvantagem no saving throw. Objetos que estão sendo usados ou carregados, dentro da área de efeito, também sofrem dano.\n\nEm Níveis Superiores. Quando você conjurar esta magia usando um Slot de Magia de nível 4 ou superior, o dano aumenta em 1d6 por nível de Slot de Magia acima do nível 3.', 2, NULL, NULL, b'0', b'0', b'0', b'0', b'1', 3, 'Grito', 1, NULL, 1, 5, 92, 9),
+(475, NULL, 2, '1', '?', 'Você escolhe até 5 criaturas que você possa ver dentro do alcance da magia, e que estejam dentro de água ou algum outro líquido, transformando seus corpos em boias. As criaturas que estiverem submersas, começam a subir até a superfície numa velocidade constante de 60 ft (12sq ou 18m) por rodada, onde flutuarão sobre o líquido, pela duração da magia.\n\nNa superfície, a criatura submetida a esta magia pode usar seu movimento para mover seu corpo com a velocidade que conseguir nadar, ou pode ser movida por outros (como corda). A magia acaba quando a criatura sair completamente do líquido.', 4, 2, 1, b'0', b'1', b'0', b'1', b'1', 1, 'Flutuabilidade', 3, 60, 1, 8, 91, 9),
+(474, NULL, 1, '1', '', 'Você cria 5 esferas infernais de fogo vivo que flutuam e orbitam condensadas ao seu redor pela duração da magia. Quando você conjurar esta magia, e como uma ação de bônus nos seus próximos turnos, você pode comandar uma ou duas das esferas para voar até um ponto dentro de 150 ft (30sq ou 45m) de você.\n\nQuando a esfera chegar ao seu destino, ou atingir uma superfície solida no caminho, ela explode. Cada criatura dentro de 10 ft (2sq ou 6m) do ponto onde a esfera explodir, precisa passar num saving throw de Destreza para cada esfera, ou sofrerá 2d6 de dano de fogo, em uma falha, ou metade num sucesso. Cada esfera causa dano separadamente.\n\nEm Níveis Superiores. Quando você conjurar esta magia usando um Slot de Magia de nível 4 ou superior, o número de esferas aumenta em 1 por nível de Slot de Magia acima do nível 3.\n', 4, 2, 1, b'1', b'0', b'0', b'1', b'1', 3, 'Esferas Infernais', 1, NULL, 1, 5, 91, 9),
+(473, NULL, 1, '1', 'Uma abelha viva', 'Você faz aparecer momentaneamente uma nuvem de abelhas que ocupam um cubo de 5ft (1sq ou 1,5m) sobre um ponto que você possa ver dentro do alcance. Se uma criatura estiver na área quando você conjurar a magia, ou se entrar na área pela primeira vez no turno ou acabar o turno dentro da nuvem, ela precisa realizar um saving throw de destreza, ou terá a parte superior do corpo coberta por inúmeras abelhas enfurecidas que bloqueiam fortemente a visão da criatura, e deixando-a com meia cobertura contra efeitos que vierem de fora da área do enxame, além disso enquanto coberto pelas abelhas, a criatura recebe 1d6 de dano perfurante.\n\nQuando uma criatura falhar no saving throw, ela ficará desorientada pelo enxame, e precisará se livrar do enxame e sair da nuvem de abelhas caso ainda tenha movimento em seu turno. Sempre que tentar sair, a criatura gasta 5 ft (1sq ou 1,5m) de seu movimento total e por estar desorientada ela corre para uma direção determinada ao rolar um d8, se livrando das abelhas ao sair da nuvem, mas se a direção rolada estiver bloqueada, a criatura não consegue sair. Por estar se movendo desorientadamente, sem saber ou indicar para as outras criaturas para qual direção está indo, a criatura que tenha falhado no Saving throw, não gera ataques de oportunidade ao sair da nuvem.\n\nEm Níveis Superiores. A magia aumenta de dano em 1d6 quando atingir nível 5 (2d6), nível 11 (3d6), nível 17 (4d6).\n', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 0, 'Enxame de Abelhas', 3, 30, 1, 2, 91, 9),
+(472, NULL, 1, '1', 'UM prisma custando ao menos 50 peças de ouro', 'Você toca uma arma a distância, concedendo-a a capacidade de transmutar matéria, alterando o tipo de  dano das munições que disparar com ela. Ao conjurar esta magia você escolhe o novo tipo de dano que será causado pela sua arma a distância, alterando para Eletricidade, Radiante ou Necrótico. Depois de ser disparada a munição volta ao normal, após acertar e causar dano no alvo, ou errar.\n\nA magia acaba quando 12 peças de munição forem atiradas pela sua arma.\n\nEm Níveis Superiores. Quando você conjurar esta magia usando um Slot de Magia de nível 3 ou superior, você aumenta a quantidade de munições em duas vezes por nível de Slot de Magia acima do nível 2.\n', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 2, 'Conversão Material de Nidalëe', 2, NULL, 1, 8, 90, 9),
+(471, NULL, 2, '1', 'Uma escultura de uma nota musical', 'Você conjura um instrumento musical a sua escolha, que você consiga empunhar com uma ou duas mãos. Você somente pode conjurar um instrumento por conjuração,e apenas você pode usá-lo.\n\nPela duração da magia você pode usar este Instrumento como um instrumento real, e como um foco arcano para suas magias de bardo, desde que não estas magias não necessitem de sua concentração.\n\nEm Níveis Superiores. A duração da magia aumenta para 10 minutos quando você alcançar o nível 5 de bardo, para 1 hora quando atingir o nível 11 e para 4 horas no nível 17', 4, 2, 5, b'1', b'1', b'0', b'1', b'1', 0, 'Conjurar Instrumento', 1, NULL, 1, 5, 90, 9),
+(470, NULL, 1, '1', 'Um escudo feito em ouro de pelo menos 100 peças de ouro', 'Você conjura em você mesmo e em até 5 outras criaturas dentro de 30ft (6sq ou 9m) que você possa ver um Manto de Clemência feito de energia dourada. Cada manto emite uma luz de penumbra num raio de 10ft (2sq ou 3m) e possui 20 de Pontos de Vida. Quando uma criatura sob o efeito da magia sofrer qualquer dano, o Manto de Clemência absorverá ele até o limite de seus Pontos de Vida, deixando passar o dano excedente para a criatura protegida.\n\nCaso o manto de uma criatura protegida seja reduzido a 0 pontos de vida, ele se torna inativo e deixar de emitir sua luz. Porém, as criaturas afetadas pelo manto, exceto você, que iniciarem seus turnos dentro de 20 ft (4sq ou 6m) do conjurador recuperam os pontos de vida de seus mantos em 1d4 + seu modificador de habilidade de conjuração (Spellcasting Ability Modifier), voltando a emitir a iluminação. Contudo, se o manto de uma criatura protegida passar mais de 1 turno com 0 pontos de vida ele é desfeito.\n\nEm Níveis Superiores. Quando você conjurar esta magia em níveis superiores, o Manto de Clemência aumenta seus Pontos de Vida em 5 para cada nível de magia acima do nível 3.', 4, 2, 1, b'0', b'1', b'0', b'1', b'1', 3, 'Clemência Divina', 1, NULL, 1, 1, 90, 9),
+(469, NULL, 1, '1', 'Água benta, 500 peças de ouro em prata em pó, que a magia consome', 'Energia divina brilha sobre o ponto escolhido, criando uma área de 30 ft (6sq ou 9m) de raio, de zona protetora. Você e cada aliado que estiver dentro da zona, ganham +2 na Classe de Armadura (CA), e são curadas pelo seu modificador de habilidade de conjuração (Spellcasting Ability Modifier) no início de seus turnos.\n\nAlém disso, cada inimigo que entrar na área precisa passar num saving throw de Sabedoria, ou terá seu movimento interrompido.', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 6, 'Círculo Sagrado', 3, 30, 1, 5, 89, 9),
+(468, NULL, 1, '1', '100 peças de ouro em pó que a magia consome', 'Esta canção zombeteira, foi escrita pelo Bardo Flash Gordon, e utiliza de suas distrações para te ajudar a consumir a capacidade mágica do alvo. Escolha um alvo capaz de conjurar magias, dentro de 60ft (12sq ou 18m).\n\nO alvo deve realizar um saving throw de constituição. Caso passe a canção falha e a magia acaba. Se falhar, caso o alvo utilize Slots de Magia para Conjuração, você o força a consumir um slot de Magia do alvo, de nível igual ou menor ao slot usado para conjurar esta magia, e recupera 1 slot seu de nível menor ou igual a metade do slot consumido (arredondado para baixo). Além disso o alvo passará a escutar vozes ecoando em seu ouvido, zombando e xingando de todas as formas imagináveis, enquanto você consome a capacidade magica dele nos próximos turnos.\n\nEnquanto a magia estiver ativa, independentemente da forma de conjuração do alvo, no início do turno dele, ele deve passar num saving throw de Carisma, ou ficará tão nervoso com as zombarias, que ficará impedido de conjurar magias até o final de seu turno.\n\nAdicionalmente, no início dos seus turnos subsequentes, você pode gastar uma ação para forçar o alvo a realizar outro saving throw de constituição. Se falhar você consumirá mais um slot de Magia do alvo, de nível menor ao slot usado para conjurar esta magia, recuperando 1 slot seu de nível menor ou igual a metade do slot consumido (arredondado para baixo). Se passar os efeitos acabam e a magia é interrompida.\n\nOs slots recuperados por esta magia não acumulam acima da quantidade máxima que você poderia ter, e somente podem ser utilizadas até que o alvo esteja desacordado, morto, ou em outro plano.\n\nEm Níveis Superiores. Ao conjurar esta magia em níveis acima do nível 5, você aumentará os níveis de Slots que poderá consumir, de acordo com as regras da canção.', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 5, 'Canção de inaptidão mágica de Flash', 3, 60, 1, 1, 89, 9),
+(467, NULL, 1, '1', '', 'As lendas contam que esta canção foi escrita pelo lendário bardo Alastor “Songbreeder” tul, quando ele estava preso, mas conseguiu permissão para cantar uma última música antes de ser executado. E graças a esta canção ele não somente saiu vivo, como todos dentro da sala foram deixados mortos, pois esta é uma canção de Raios e Trovões.\nO efeito magico inicia quando você começar a tocar esta Canção em seu instrumento musical, aumentando e acumulando a cada Ato desta música, até o final do último Ato, o Grande Final, quando todos os efeitos cessam. Você pode usar uma ação em cada turno posterior, para progredir a música e passar entre os Atos, aumentando os efeitos mágicos em vigor. Caso você não gaste uma ação para progredir a balada, os efeitos em vigor permanecerão ativos, enquanto um efeito em eco da sua última nota permanecer no ar, até o início do seu próximo turno onde você deverá gastar uma ação para progredir ou caso contrário, a magia e todos seus efeitos se encerram ao final do turno.\n\nAto I, Prólogo. No início da canção um globo de Raios e Trovões surge em um raio de 20 ft (4sq ou 6m). Qualquer inimigo que entre ou comece seu turno dentro da área, precisa passar num saving throw de Destreza ou terão desvantagem em seus ataques até o final de seus próximos turnos e serão empurrados para 15 ft (3sq ou 4,5m). Se passarem os inimigos sofrerão desvantagem apenas em sua próxima rolagem de ataque.\n\nAto II, Introdução. A partir de sua 4ª ação gasta para progredir a magia, cada inimigo dentro de 90 ft (18sq ou 27m) de você, que pode ouvir sua música, e tentarem conjurar uma magia que contenham o componente Voz, deverão passar num teste de Concentração, como se estivesse recebendo 4d10 de dano, ou perderão a magia. Você deve rolar os dados novamente todo início de seu turno.\n\nAto III, Desenvolvimento. Quando gastar a 6º ação para progredir a música, Trombetas magicas começam a tocar com você. Cada inimigo dentro de 30 ft (6sq ou 9m) de você, e que podem escutar a música, deverão fazer um saving throw de Constituição, ou sofrerão 2d8 de dano de Thunder e serão jogados ao chão. Se passarem sofrerão apenas metade do dano.\n\nAto IV, Ápice. Ao utilizar sua 8ª ação para continuar esta canção, cada inimigo dentro de 40 ft (8sq ou 12m) de você, que possam escutar sua música, deverão realizar um saving throw de Sabedoria ou ficarão atordoados. Os inimigos poderão realizar o saving throw novamente ao final de seus turnos, caso passarem ficarão imunes a este efeito até o final desta magia. Criaturas imunes a Encantamento não podem sofrer este efeito.\n\nAto V, Final Estrondoso. Raios começam a sair de seu instrumento musical e você, atingindo todas as criaturas dentro de 60ft de você, que possam escutar sua música. Os alvos deverão realizar um saving throw de Destreza ou sofrerão dano de Eletricidade de acordo com sua distância de você: 7d8 até 15 ft (4sq ou 6m), diminuindo 1d8 do dano a cada 10 ft (3sq ou 4,5m) além da primeira área, até o limite de 60ft (12sq ou 18m) de distância do conjurador. Em um sucesso as criaturas sofrem metade do dano. \n\nOpcionalmente, uma vez durante toda a canção você pode usar sua ação para prolongar um dos atos anteriores ao Ato V, e se assim o fizer, adicione 1d8 ao dano do Final Estrondoso, e conceda vantagem para seus aliados no saving throw para evitar o dano.', 4, 2, 2, b'1', b'0', b'0', b'1', b'1', 6, 'Canção da tempestade de Songbreeder', 1, NULL, 1, 5, 88, 9),
+(466, NULL, 1, '1', 'um pedaço de pele de camaleão', 'Sua pele, roupas, armadura e quaisquer coisas que você estiver usando ou segurando, mudam para se igualarem ao fundo em que estiver atrás de você, te tornando essencialmente invisível para quaisquer criaturas que tentarem percebê-lo de frente. Uma criatura pode tentar encontrá-lo usando uma ação para realizar um teste de Sabedoria (Perception) ou Inteligência (Investigation) contra sua Dificuldade (DC) de Magia. Caso tenham sucesso, a criatura consegue lhe enxergar até que perca linha de visão.', 4, 2, 10, b'1', b'1', b'0', b'1', b'1', 1, 'Camaleão', 1, NULL, 1, 6, 88, 9),
+(465, NULL, 7, '1', '', 'Quando uma criatura dentro de 30 ft de você for acertado por um ataque com arma corpo-a-corpo, a distância, ou ataque magico, você pode criar um link magico entre você e o alvo antes da finalização do ataque, absorvendo para você todo o dano recebido por ele. Se você ainda estiver em pé com o dano recebido, você terá vantagem nas rolagens de ataque com arma, e causará 1d6 de dano radiante extra até o final do seu próximo turno.\n', 2, NULL, NULL, b'0', b'0', b'0', b'1', b'1', 1, 'Bênção do Mártir', 3, 30, 1, 1, 88, 9),
+(464, NULL, 1, NULL, 'A musical instrument', 'Escrita pelo lendário bardo Alastor “Songbreeder” tul, estas notas musicais soam gentis e amigáveis. O efeito magico inicia quando você começar a tocar esta balada em seu instrumento musical, aumentando e acumulando a cada Ato desta música, até o final do último Ato, a Apoteose, quando todos os efeitos cessam. A área de efeito da magia é de 30 ft (6sq ou 9m) de raio do conjurador.\nVocê pode usar uma ação em cada turno posterior, para progredir a música e passar entre os Atos, aumentando os efeitos mágicos em vigor. Caso você não gaste uma ação para progredir a balada, os efeitos em vigor permanecerão ativos, enquanto um cantarolar magico permanece no ar, até o início do seu próximo turno onde você deverá gastar uma ação para progredir ou caso contrário, a magia e todos seus efeitos se encerram no final do turno.\n\nAto I. Inicia quando você conjurar a magia, concedendo a você e até 8 aliados dentro da área que possam escutar a música, imunidade a Medo e Encantamentos.\n\nAto II. O segundo ato começa quando utilizar sua 4ª ação para dar continuidade a esta balada, concedendo a todos os seus aliados, dentro da área e que possam escutar a música, uma Inspiração Musical. A Inspiração Musical poderá, então, ser gasta para adicionar 1d4 a uma rolagem de Ataque, de Saving Throw ou num teste de Habilidade. Os aliados reganham a Inspiração Musical no final do turno do conjurador, mas não acumulam Inspirações para usos posteriores.\n\nAto III. O terceiro ato começa quando você gastar sua 6ª ação para progredir a balada. A partir deste ato, todos os inimigos que entrem ou iniciem seus turnos dentro da área de efeito da magia, precisam passar num saving throw de constituição ou estarão sob o efeito de uma área de silencio, ficando surdas, e impedidas de conjurar magias com componentes Verbais. As criaturas, surdas por essa magia e ficam imunes a dano de Thunder enquanto estiverem dentro da área. Mesmo sob o efeito da área de silencio os inimigos que falharem continuam escutando a balada em suas mentes.\n\nAto IV. A partir da 8ª Ação, iniciam-se os efeitos do quarto ato. Todos os aliados dentro da área que possam ouvir a música, têm vantagem na primeira rolagem de Ataque que fizerem, e ganham vantagem no primeiro Saving Throw que rolarem. Enquanto a Balada estiver ativa, os aliados recuperam estes benefícios no final de cada turno do conjurador.\n\nAto V (Apoteose). Ao gastar sua 10ª ação para progredir a Balada, você encerra a Balada limpando e curando seus aliados. Todos os seus aliados dentro da área de efeito e que possam escutar a música, são curados em seu nível de Bardo + modificador de Carisma e são afetados pela magia Lesser Restoration. Ao final do Turno em que você iniciou a Apoteose, a Magia e todos os seus efeitos acumulados terminam.\n\nOpcionalmente, uma vez durante toda balada você pode usar sua ação para prolongar um dos atos anteriores ao Ato V, se assim o fizer, adicione 1d8 de bônus na cura da Apoteose.\n', 4, 2, 2, b'1', b'1', b'0', b'1', b'1', 5, 'Balada Hipnotizante', 1, NULL, 1, 1, 87, 9),
+(463, NULL, 1, '1', 'A drop of the caster\'s blood ', 'Você emite uma aura de 20 ft (4sq ou 6m) de raio, que transmite calma e vida aos seus companheiros.\n\nAo conjurar a magia, e em cada início de seus turnos subsequentes, você escolhe sofrer de 1d4 de dano Radiante, e até o início do seu próximo turno, todas as curas realizadas por você ganham um bônus de 1d8 para cada dado de dano recebido em Pontos de Vida. O dano recebido por você desta magia não pode ser diminuído de forma alguma.\n\nAté o final da magia, a aura se move centrada em você, e qualquer aliado que entre ou comece seu turno dentro da sua aura, é curado por você em 4 + modificador de Habilidade de Conjurador (Spellcasting Ability modifier).\n\nEm Níveis Superiores. Quando você conjurar esta  magia usando um Slot de Magia de nível 5 ou superior, você pode aumentar o dano recebido em 1d4 por nível de Slot de Magia acima do nível 4.', 4, 2, 1, b'1', b'1', b'0', b'1', b'1', 4, 'Aura do Martírio de Eva', 1, NULL, 1, 7, 86, 9),
+(462, NULL, 1, '1', '', 'Você toca uma aljava com ao menos 1 flecha ou Dardo. Você transmuta sua Aljava e as munições dentro dela no momento da conjuração, permitindo que ao sacar uma munição ela assume uma das Formas da Besta. Ao conjurar a magia você escolhe imediatamente uma Forma da Besta, e esta forma determinará o efeito magico ativo na munição sacada desta aljava. Depois de escolher uma forma, você poderá trocá-la apenas no seu próximo turno, utilizando uma Ação de Bônus para alterar sua forma.\r\nO efeito magico acaba na munição acertando ou errando o alvo, ou quando o efeito da Forma da Besta terminar. A Magia acaba na Aljava quando você sacar 12 munições.\r\n\r\nÁguia. Ao ser atirada esta munição ganha a forma uma águia etérea, quase imperceptível, que voará por até 1d4 minutos quando voltará ao normal caindo ao chão. Enquanto esta Águia estiver no ar, o conjurador poderá trocar seus sentidos pelos da criatura, enxergando e escutando apenas pelos ouvidos etéreos. A águia pode ser percebida com um teste de sabedoria (Perception) dificuldade (DC) 18. \r\n\r\nBaleia Narval. Esta munição aparenta ter um enorme ponta fantasma. Ao atirar contra um alvo a frente de outra criatura, se o resultado da sua rolagem de ataque  acertar também a criatura em até 5ft do alvo original, a ponta fantasma perfura a criatura atrás de seu alvo, acertando duas criaturas com apenas um ataque. Role os danos separadamente, como se tivesse realizado um ataque para cada. \r\n\r\nCarneiro. A munição acerta com uma força brutal. Ao acertar o alvo com esta munição, ele recebe 1d6 de dano de força extra e precisa passar num Saving Throw de Força. Se falhar o alvo é empurrado 10ft (2sq ou 3m).\r\n\r\nFalcão. A munição dança no ar antes de acertar o alvo. Ao atacar com esta munição você ignora as penalidades de cobertura, e consegue atacar além da distância normal da arma sem penalidades, além de causar 1d4 de dano Extra.\r\n\r\nPolvo. Esta munição explode ao impacto, liberando uma nuvem negra de fumaça magica, numa área de 20 ft (4sq ou 6m) ao redor do ponto ou alvo acertado. Qualquer criatura dentro desta área fica pesadamente obscura, por 1d6 turnos.', 4, 3, 1, b'1', b'0', b'0', b'1', b'0', 3, 'Aljava das Bestas', 2, NULL, 1, 8, 84, 9);
+
+
+/* ***** BARD SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(2,8), /* Animal Friendship */
+(2,9), /* Animal Messenger */
+(2,12), /* Animate Objects */
+(2,26), /* Awaken */
+(2,27), /* Bane */
+(2,34), /* Bestow Curse */
+(2,37), /* Blade Ward */
+(2,41), /* Blindness/Deafness */
+(2,49), /* Calm Emotions */
+(2,51), /* Catnap */
+(2,56), /* Charm Monster */
+(2,57), /* Charm Person */
+(2,62), /* Clairvoyance */
+(2,64), /* Cloud of Daggers */
+(2,71), /* Comprehend Languages */
+(2,72), /* Compulsion */
+(2,74), /* Confusion */
+(2,99), /* Crown of Madness */
+(2,102), /* Cure Wounds */
+(2,103), /* Dancing Lights */
+(2,114), /* Detect Magic */
+(2,116), /* Detect Thoughts */
+(2,117), /* Dimension Door */
+(2,118), /* Disguise Self */
+(2,121), /* Dispel Magic */
+(2,122), /* Dissonant Whispers */
+(2,127), /* Dominate Monster */
+(2,128), /* Dominate Person */
+(2,131), /* Dream */
+(2,135), /* Earth Tremor */
+(2,141), /* Enemies abound */
+(2,143), /* Enhance Ability */
+(2,147), /* Enthrall */
+(2,149), /* Etherealness */
+(2,152), /* Eyebite */
+(2,154), /* Faerie Fire */
+(2,157), /* Fear */
+(2,158), /* Feather Fall */
+(2,159), /* Feeblemind */
+(2,160), /* Feign Death */
+(2,164), /* Find the Path */
+(2,179), /* Forcecage */
+(2,180), /* Foresight */
+(2,181), /* Freedom of Movement */
+(2,182), /* Friends */
+(2,186), /* Geas */
+(2,189), /* Glibness */
+(2,191), /* Glyph of Warding */
+(2,195), /* Greater Invisibility */
+(2,196), /* Greater Restoration */
+(2,200), /* Guards and Wards */
+(2,207), /* Hallucinatory Terrain */
+(2,212), /* Healing Word */
+(2,213), /* Heat Metal */
+(2,216), /* Heroism */
+(2,218), /* Hold Monster */
+(2,219), /* Hold Person */
+(2,224), /* Hypnotic Pattern */
+(2,227), /* Identify */
+(2,229), /* Illusory Script */
+(2,241), /* Invisibility */
+(2,244), /* Knock */
+(2,245), /* Legend Lore */
+(2,247), /* Leomund’s Tiny Hut */
+(2,248), /* Lesser Restoration */
+(2,251), /* Light */
+(2,255), /* Locate Animals or Plants */
+(2,256), /* Locate Creature */
+(2,257), /* Locate Object */
+(2,258), /* Longstrider */
+(2,262), /* Mage Hand */
+(2,266), /* Magic Mouth */
+(2,269), /* Major Image */
+(2,270), /* Mass Cure Wounds */
+(2,273), /* Mass Polymorph */
+(2,274), /* Mass Suggestion */
+(2,280), /* Mending */
+(2,282), /* Message */
+(2,285), /* Mind Blank */
+(2,287), /* Minor Illusion */
+(2,288), /* Mirage Arcane */
+(2,290), /* Mislead */
+(2,292), /* Modify Memory */
+(2,296), /* Mordenkainen’s Magnificent Mansion */
+(2,298), /* Mordenkainen’s Sword */
+(2,301), /* Nondetection */
+(2,305), /* Otto’s Irresistible Dance */
+(2,308), /* Phantasmal Force */
+(2,312), /* Planar Binding */
+(2,314), /* Plant Growth */
+(2,316), /* Polymorph */
+(2,317), /* Power Word Heal */
+(2,318), /* Power Word Kill */
+(2,320), /* Power Word Stun */
+(2,322), /* Prestidigitation */
+(2,328), /* Programmed Illusion */
+(2,329), /* Project Image */
+(2,333), /* Psychic Scream */
+(2,335), /* Pyrotechnics */
+(2,336), /* Raise Dead */
+(2,341), /* Regenerate */
+(2,345), /* Resurrection */
+(2,353), /* Scrying */
+(2,355), /* See invisibility */
+(2,356), /* Seeming */
+(2,357), /* Sending */
+(2,363), /* Shatter */
+(2,369), /* Silence */
+(2,370), /* Silent Image */
+(2,372), /* Skill Empowerment */
+(2,373), /* Skywrite */
+(2,374), /* Sleep */
+(2,381), /* Speak with Animals */
+(2,382), /* Speak with Dead */
+(2,383), /* Speak with Plants */
+(2,390), /* Stinking Cloud */
+(2,395), /* Suggestion */
+(2,402), /* Symbol */
+(2,403), /* Synaptic Static */
+(2,404), /* Tasha’s Hideous Laughter */
+(2,407), /* Teleport */
+(2,408), /* Teleportation Circle */
+(2,415), /* Thunderclap */
+(2,417), /* Thunderwave */
+(2,418), /* Tidal Wave */
+(2,422), /* Tongues */
+(2,426), /* True Polymorph */
+(2,428), /* True Seeing */
+(2,429), /* True Strike */
+(2,431), /* Unseen Servant */
+(2,433), /* Vicious Mockery */
+(2,444), /* Warding Wind */
+(2,460); /* Zone of Truth */
+
+/* ***** CLERIC SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(3,5), /* Aid */
+(3,11), /* Animate Dead */
+(3,14), /* Antimagic Field */
+(3,21), /* Astral Projection */
+(3,22), /* Augury */
+(3,27), /* Bane */
+(3,29), /* Banishment */
+(3,31), /* Beacon of Hope */
+(3,34), /* Bestow Curse */
+(3,36), /* Blade Barrier */
+(3,38), /* Bless */
+(3,41), /* Blindness/Deafness */
+(3,49), /* Calm Emotions */
+(3,53), /* Ceremony */
+(3,62), /* Clairvoyance */
+(3,67), /* Command */
+(3,68), /* Commune */
+(3,77), /* Conjure Celestial */
+(3,84), /* Contagion */
+(3,86), /* Continual Flame */
+(3,88), /* Control Water */
+(3,89), /* Control Weather */
+(3,94), /* Create Food and Water */
+(3,96), /* Create or Destroy Water */
+(3,97), /* Create Undead */
+(3,102), /* Cure Wounds */
+(3,107), /* Dawn */
+(3,108), /* Daylight */
+(3,109), /* Death Ward */
+(3,113), /* Detect Evil and Good */
+(3,114), /* Detect Magic */
+(3,115), /* Detect Poison and Disease */
+(3,120), /* Dispel Evil and Good */
+(3,121), /* Dispel Magic */
+(3,123), /* Divination */
+(3,125), /* Divine Word */
+(3,137), /* Earthquake */
+(3,143), /* Enhance Ability */
+(3,149), /* Etherealness */
+(3,160), /* Feign Death */
+(3,164), /* Find the Path */
+(3,165), /* Find Traps */
+(3,169), /* Fire Storm */
+(3,173), /* Flame Strike */
+(3,178), /* Forbiddance */
+(3,181), /* Freedom of Movement */
+(3,185), /* Gate */
+(3,186), /* Geas */
+(3,187), /* Gentle Repose */
+(3,191), /* Glyph of Warding */
+(3,196), /* Greater Restoration */
+(3,198), /* Guardian of Faith */
+(3,201), /* Guidance */
+(3,202), /* Guiding Bolt */
+(3,206), /* Hallow */
+(3,208), /* Harm */
+(3,210), /* Heal */
+(3,212), /* Healing Word */
+(3,215), /* Heroes’ Feast */
+(3,219), /* Hold Person */
+(3,220), /* Holy Aura */
+(3,221), /* Holy Weapon */
+(3,235), /* Inflict Wounds */
+(3,236), /* Insect Plague */
+(3,245), /* Legend Lore */
+(3,248), /* Lesser Restoration */
+(3,250), /* Life Transference */
+(3,251), /* Light */
+(3,256), /* Locate Creature */
+(3,257), /* Locate Object */
+(3,263), /* Magic Circle */
+(3,270), /* Mass Cure Wounds */
+(3,271), /* Mass Heal */
+(3,272), /* Mass Healing Word */
+(3,277), /* Meld into Stone */
+(3,280), /* Mending */
+(3,311), /* Planar Ally */
+(3,312), /* Planar Binding */
+(3,313), /* Plane Shift */
+(3,321), /* Prayer of Healing */
+(3,330), /* Protection from Energy */
+(3,331), /* Protection from Evil and Good */
+(3,332), /* Protection from Poison */
+(3,334), /* Purify Food and Drink */
+(3,336), /* Raise Dead */
+(3,341), /* Regenerate */
+(3,343), /* Remove Curse */
+(3,344), /* Resistance */
+(3,345), /* Resurrection */
+(3,347), /* Revivify */
+(3,349), /* Sacred Flame */
+(3,350), /* Sanctuary */
+(3,353), /* Scrying */
+(3,357), /* Sending */
+(3,365), /* Shield of Faith */
+(3,369), /* Silence */
+(3,380), /* Spare the Dying */
+(3,382), /* Speak with Dead */
+(3,386), /* Spirit Guardians */
+(3,387), /* Spiritual Weapon */
+(3,391), /* Stone Shape */
+(3,402), /* Symbol */
+(3,409), /* Temple of the Gods */
+(3,412), /* Thaumaturgy */
+(3,421), /* Toll the Dead */
+(3,422), /* Tongues */
+(3,427), /* True Resurrection */
+(3,428), /* True Seeing */
+(3,443), /* Warding Bond */
+(3,446), /* Water Walk */
+(3,455), /* Word of Radiance */
+(3,456), /* Word of Recall */
+(3,460); /* Zone of Truth */
+
+/* ***** DRUID SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(4,2), /* Absorb Elements */
+(4,8), /* Animal Friendship */
+(4,9), /* Animal Messenger */
+(4,10), /* Animal Shapes */
+(4,13), /* Antilife Shell */
+(4,15), /* Antipathy/Sympathy */
+(4,26), /* Awaken */
+(4,30), /* Barkskin */
+(4,32), /* Beast Bond */
+(4,33), /* Beast Sense */
+(4,39), /* Blight */
+(4,44), /* Bones of the Earth */
+(4,48), /* Call Lightning */
+(4,56), /* Charm Monster */
+(4,57), /* Charm Person */
+(4,69), /* Commune with Nature */
+(4,74), /* Confusion */
+(4,75), /* Conjure Animals */
+(4,78), /* Conjure Elemental */
+(4,79), /* Conjure Fey */
+(4,80), /* Conjure Minor Elementals */
+(4,82), /* Conjure Woodland Beings */
+(4,84), /* Contagion */
+(4,87), /* Control Flames */
+(4,88), /* Control Water */
+(4,89), /* Control Weather */
+(4,90), /* Control Winds */
+(4,93), /* Create Bonfire */
+(4,96), /* Create or Destroy Water */
+(4,102), /* Cure Wounds */
+(4,106), /* Darkvision */
+(4,108), /* Daylight */
+(4,114), /* Detect Magic */
+(4,115), /* Detect Poison and Disease */
+(4,121), /* Dispel Magic */
+(4,126), /* Dominate Beast */
+(4,132), /* Druid Grove */
+(4,133), /* Druidcraft */
+(4,134), /* Dust Devil */
+(4,135), /* Earth Tremor */
+(4,136), /* Earthbind */
+(4,137), /* Earthquake */
+(4,139), /* Elemental Bane */
+(4,143), /* Enhance Ability */
+(4,146), /* Entangle */
+(4,148), /* Erupting Earth */
+(4,154), /* Faerie Fire */
+(4,159), /* Feeblemind */
+(4,160), /* Feign Death */
+(4,164), /* Find the Path */
+(4,165), /* Find Traps */
+(4,169), /* Fire Storm */
+(4,171), /* Flame Arrows */
+(4,172), /* Flame Blade */
+(4,174), /* Flaming Sphere */
+(4,177), /* Fog Cloud */
+(4,180), /* Foresight */
+(4,181), /* Freedom of Movement */
+(4,183), /* Frostbite */
+(4,186), /* Geas */
+(4,188), /* Giant Insect */
+(4,192), /* Goodberry */
+(4,193), /* Grasping Vine */
+(4,196), /* Greater Restoration */
+(4,199), /* Guardian of Nature */
+(4,201), /* Guidance */
+(4,203), /* Gust */
+(4,204), /* Gust of Wind */
+(4,207), /* Hallucinatory Terrain */
+(4,210), /* Heal */
+(4,211), /* Healing Spirit */
+(4,212), /* Healing Word */
+(4,213), /* Heat Metal */
+(4,215), /* Heroes’ Feast */
+(4,219), /* Hold Person */
+(4,225), /* Ice Knife */
+(4,226), /* Ice Storm */
+(4,234), /* Infestation */
+(4,236), /* Insect Plague */
+(4,237), /* Investiture of Flame */
+(4,238), /* Investiture of Ice */
+(4,239), /* Investiture of Stone */
+(4,240), /* Investiture of Wind */
+(4,243), /* Jump */
+(4,248), /* Lesser Restoration */
+(4,255), /* Locate Animals or Plants */
+(4,256), /* Locate Creature */
+(4,257), /* Locate Object */
+(4,258), /* Longstrider */
+(4,260), /* Maelstrom */
+(4,267), /* Magic Stone */
+(4,270), /* Mass Cure Wounds */
+(4,277), /* Meld into Stone */
+(4,280), /* Mending */
+(4,288), /* Mirage Arcane */
+(4,293), /* Mold earth */
+(4,294), /* Moonbeam */
+(4,299), /* Move Earth */
+(4,306), /* Pass Without Trace */
+(4,312), /* Planar Binding */
+(4,313), /* Plane Shift */
+(4,314), /* Plant Growth */
+(4,315), /* Poison Spray */
+(4,316), /* Polymorph */
+(4,323), /* Primal Savagery */
+(4,324), /* Primordial Ward */
+(4,330), /* Protection from Energy */
+(4,332), /* Protection from Poison */
+(4,334), /* Purify Food and Drink */
+(4,341), /* Regenerate */
+(4,342), /* Reincarnate */
+(4,344), /* Resistance */
+(4,346), /* Reverse Gravity */
+(4,353), /* Scrying */
+(4,361), /* Shape Water */
+(4,362), /* Shapechange */
+(4,366), /* Shillelagh */
+(4,373), /* Skywrite */
+(4,375), /* Sleet Storm */
+(4,377), /* Snare */
+(4,381), /* Speak with Animals */
+(4,383), /* Speak with Plants */
+(4,385), /* Spike Growth */
+(4,391), /* Stone Shape */
+(4,392), /* Stoneskin */
+(4,393), /* Storm of Vengeance */
+(4,398), /* Sunbeam */
+(4,399), /* Sunburst */
+(4,413), /* Thorn Whip */
+(4,415), /* Thunderclap */
+(4,417), /* Thunderwave */
+(4,418), /* Tidal Wave */
+(4,423), /* Transmute Rock */
+(4,424), /* Transport via Plants */
+(4,425), /* Tree Stride */
+(4,427), /* True Resurrection */
+(4,430), /* Tsunami */
+(4,435), /* Wall of Fire */
+(4,440), /* Wall of Stone */
+(4,441), /* Wall of Thorns */
+(4,442), /* Wall of Water */
+(4,444), /* Warding Wind */
+(4,445), /* Water Breathing */
+(4,446), /* Water Walk */
+(4,447), /* Watery Sphere */
+(4,450), /* Whirlwind */
+(4,451), /* Wind Walk */
+(4,452), /* Wind Wall */
+(4,457); /* Wrath of Nature */
+
+/* ***** PALADIN SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(7,5), /* Aid */
+(7,23), /* Aura of Life */
+(7,24), /* Aura of Purity */
+(7,25), /* Aura of Vitality */
+(7,28), /* Banishing Smite */
+(7,29), /* Banishment */
+(7,38), /* Bless */
+(7,40), /* Blinding Smite */
+(7,46), /* Branding Smite */
+(7,53), /* Ceremony */
+(7,61), /* Circle of Power */
+(7,67), /* Command */
+(7,70), /* Compelled Duel */
+(7,94), /* Create Food and Water */
+(7,101), /* Crusader’s Mantle */
+(7,102), /* Cure Wounds */
+(7,108), /* Daylight */
+(7,109), /* Death Ward */
+(7,112), /* Destructive Wave */
+(7,113), /* Detect Evil and Good */
+(7,114), /* Detect Magic */
+(7,115), /* Detect Poison and Disease */
+(7,120), /* Dispel Evil and Good */
+(7,121), /* Dispel Magic */
+(7,124), /* Divine Favor */
+(7,140), /* Elemental Weapon */
+(7,162), /* Find Greater Steed */
+(7,163), /* Find Steed */
+(7,186), /* Geas */
+(7,216), /* Heroism */
+(7,221), /* Holy Weapon */
+(7,248), /* Lesser Restoration */
+(7,256), /* Locate Creature */
+(7,257), /* Locate Object */
+(7,263), /* Magic Circle */
+(7,268), /* Magic Weapon */
+(7,331), /* Protection from Evil and Good */
+(7,332), /* Protection from Poison */
+(7,334), /* Purify Food and Drink */
+(7,336), /* Raise Dead */
+(7,343), /* Remove Curse */
+(7,347), /* Revivify */
+(7,354), /* Searing Smite */
+(7,365), /* Shield of Faith */
+(7,388), /* Staggering Smite */
+(7,458), /* Wrathful Smite */
+(7,460); /* Zone of Truth */
+
+/* ***** RANGER SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(8,2), /* Absorb Elements */
+(8,6), /* Alarm */
+(8,8), /* Animal Friendship */
+(8,9), /* Animal Messenger */
+(8,30), /* Barkskin */
+(8,31), /* Beacon of Hope */
+(8,32), /* Beast Bond */
+(8,33), /* Beast Sense */
+(8,69), /* Commune with Nature */
+(8,75), /* Conjure Animals */
+(8,76), /* Conjure Barrage */
+(8,81), /* Conjure Volley */
+(8,82), /* Conjure Woodland Beings */
+(8,91), /* Cordon of Arrows */
+(8,102), /* Cure Wounds */
+(8,106), /* Darkvision */
+(8,108), /* Daylight */
+(8,114), /* Detect Magic */
+(8,115), /* Detect Poison and Disease */
+(8,145), /* Ensnaring Strike */
+(8,165), /* Find Traps */
+(8,171), /* Flame Arrows */
+(8,177), /* Fog Cloud */
+(8,181), /* Freedom of Movement */
+(8,192), /* Goodberry */
+(8,193), /* Grasping Vine */
+(8,199), /* Guardian of Nature */
+(8,205), /* Hail of Thorns */
+(8,211), /* Healing Spirit */
+(8,223), /* Hunter’s Mark */
+(8,243), /* Jump */
+(8,248), /* Lesser Restoration */
+(8,252), /* Lightning Arrow */
+(8,255), /* Locate Animals or Plants */
+(8,256), /* Locate Creature */
+(8,257), /* Locate Object */
+(8,258), /* Longstrider */
+(8,301), /* Nondetection */
+(8,306), /* Pass Without Trace */
+(8,314), /* Plant Growth */
+(8,330), /* Protection from Energy */
+(8,332), /* Protection from Poison */
+(8,369), /* Silence */
+(8,377), /* Snare */
+(8,381), /* Speak with Animals */
+(8,383), /* Speak with Plants */
+(8,385), /* Spike Growth */
+(8,389), /* Steel Wind Strike */
+(8,392), /* Stoneskin */
+(8,400), /* Swift Quiver */
+(8,425), /* Tree Stride */
+(8,445), /* Water Breathing */
+(8,446), /* Water Walk */
+(8,452), /* Wind Wall */
+(8,457), /* Wrath of Nature */
+(8,459); /* Zephyr Strike */
+
+/* ***** WIZARD SPELLS *****  */
+INSERT INTO `gameclass_has_spell` (`gameclass_id`, `spell_id`) VALUES
+(12,1), /* Abi-Dalzim’s Horrid Wilting */
+(12,2), /* Absorb Elements */
+(12,3), /* Acid Splash */
+(12,4), /* Aganazzar’s Scorcher */
+(12,6), /* Alarm */
+(12,7), /* Alter Self */
+(12,11), /* Animate Dead */
+(12,12), /* Animate Objects */
+(12,14), /* Antimagic Field */
+(12,15), /* Antipathy/Sympathy */
+(12,16), /* Arcane Eye */
+(12,17), /* Arcane Gate */
+(12,18), /* Arcane Lock */
+(12,21), /* Astral Projection */
+(12,29), /* Banishment */
+(12,34), /* Bestow Curse */
+(12,35), /* Bigby’s Hand */
+(12,37), /* Blade Ward */
+(12,39), /* Blight */
+(12,41), /* Blindness/Deafness */
+(12,42), /* Blink */
+(12,43), /* Blur */
+(12,45), /* Booming Blade */
+(12,47), /* Burning Hands */
+(12,50), /* Catapult */
+(12,51), /* Catnap */
+(12,52), /* Cause Fear */
+(12,54), /* Chain Lightning */
+(12,56), /* Charm Monster */
+(12,57), /* Charm Person */
+(12,58), /* Chill Touch */
+(12,59), /* Chromatic Orb */
+(12,60), /* Circle of Death */
+(12,62), /* Clairvoyance */
+(12,63), /* Clone */
+(12,64), /* Cloud of Daggers */
+(12,65), /* Cloudkill */
+(12,66), /* Color Spray */
+(12,71), /* Comprehend Languages */
+(12,73), /* Cone of Cold */
+(12,74), /* Confusion */
+(12,78), /* Conjure Elemental */
+(12,80), /* Conjure Minor Elementals */
+(12,83), /* Contact Other Plane */
+(12,85), /* Contingency */
+(12,86), /* Continual Flame */
+(12,87), /* Control Flames */
+(12,88), /* Control Water */
+(12,89), /* Control Weather */
+(12,90), /* Control Winds */
+(12,92), /* Counterspell */
+(12,93), /* Create Bonfire */
+(12,95), /* Create Homunculus */
+(12,97), /* Create Undead */
+(12,98), /* Creation */
+(12,99), /* Crown of Madness */
+(12,100), /* Crown of Stars */
+(12,103), /* Dancing Lights */
+(12,104), /* Danse Macabre */
+(12,105), /* Darkness */
+(12,106), /* Darkvision */
+(12,107), /* Dawn */
+(12,110), /* Delayed Blast Fireball */
+(12,111), /* Demiplane */
+(12,114), /* Detect Magic */
+(12,116), /* Detect Thoughts */
+(12,117), /* Dimension Door */
+(12,118), /* Disguise Self */
+(12,119), /* Disintegrate */
+(12,121), /* Dispel Magic */
+(12,127), /* Dominate Monster */
+(12,128), /* Dominate Person */
+(12,129), /* Dragon's Breath */
+(12,130), /* Drawmij’s Instant Summons */
+(12,131), /* Dream */
+(12,134), /* Dust Devil */
+(12,135), /* Earth Tremor */
+(12,136), /* Earthbind */
+(12,139), /* Elemental Bane */
+(12,141), /* Enemies abound */
+(12,142), /* Enervation */
+(12,144), /* Enlarge/Reduce */
+(12,148), /* Erupting Earth */
+(12,149), /* Etherealness */
+(12,150), /* Evard’s Black Tentacles */
+(12,151), /* Expeditious Retreat */
+(12,152), /* Eyebite */
+(12,153), /* Fabricate */
+(12,155), /* False Life */
+(12,156), /* Far Step */
+(12,157), /* Fear */
+(12,158), /* Feather Fall */
+(12,159), /* Feeblemind */
+(12,160), /* Feign Death */
+(12,161), /* Find Familiar */
+(12,166), /* Finger of Death */
+(12,167), /* Fire Bolt */
+(12,168), /* Fire Shield */
+(12,170), /* Fireball */
+(12,171), /* Flame Arrows */
+(12,174), /* Flaming Sphere */
+(12,175), /* Flesh to Stone */
+(12,176), /* Fly */
+(12,177), /* Fog Cloud */
+(12,179), /* Forcecage */
+(12,180), /* Foresight */
+(12,182), /* Friends */
+(12,183), /* Frostbite */
+(12,184), /* Gaseous Form */
+(12,185), /* Gate */
+(12,186), /* Geas */
+(12,187), /* Gentle Repose */
+(12,190), /* Globe of Invulnerability */
+(12,191), /* Glyph of Warding */
+(12,194), /* Grease */
+(12,195), /* Greater Invisibility */
+(12,197), /* Green-Flame Blade */
+(12,200), /* Guards and Wards */
+(12,203), /* Gust */
+(12,207), /* Hallucinatory Terrain */
+(12,209), /* Haste */
+(12,218), /* Hold Monster */
+(12,219), /* Hold Person */
+(12,224), /* Hypnotic Pattern */
+(12,225), /* Ice Knife */
+(12,226), /* Ice Storm */
+(12,227), /* Identify */
+(12,228), /* Illusory Dragon */
+(12,229), /* Illusory Script */
+(12,230), /* Immolation */
+(12,231), /* Imprisonment */
+(12,232), /* Incendiary Cloud */
+(12,233), /* Infernal Calling */
+(12,234), /* Infestation */
+(12,237), /* Investiture of Flame */
+(12,238), /* Investiture of Ice */
+(12,239), /* Investiture of Stone */
+(12,240), /* Investiture of Wind */
+(12,241), /* Invisibility */
+(12,242), /* Invulnerability */
+(12,243), /* Jump */
+(12,244), /* Knock */
+(12,245), /* Legend Lore */
+(12,246), /* Leomund’s Secret Chest */
+(12,247), /* Leomund’s Tiny Hut */
+(12,249), /* Levitate */
+(12,250), /* Life Transference */
+(12,251), /* Light */
+(12,253), /* Lightning Bolt */
+(12,254), /* Lightning Lure */
+(12,256), /* Locate Creature */
+(12,257), /* Locate Object */
+(12,258), /* Longstrider */
+(12,259), /* Maddening Darkness */
+(12,261), /* Mage Armor */
+(12,262), /* Mage Hand */
+(12,263), /* Magic Circle */
+(12,264), /* Magic Jar */
+(12,265), /* Magic Missile */
+(12,266), /* Magic Mouth */
+(12,268), /* Magic Weapon */
+(12,269), /* Major Image */
+(12,273), /* Mass Polymorph */
+(12,274), /* Mass Suggestion */
+(12,275), /* Maximilian’s Earthen Grasp */
+(12,276), /* Maze */
+(12,278), /* Melf’s Acid Arrow */
+(12,279), /* Melf’s Minute Meteors */
+(12,280), /* Mending */
+(12,281), /* Mental Prison */
+(12,282), /* Message */
+(12,283), /* Meteor Swarm */
+(12,284), /* Mighty Fortress */
+(12,285), /* Mind Blank */
+(12,286), /* Mind Spike */
+(12,287), /* Minor Illusion */
+(12,288), /* Mirage Arcane */
+(12,289), /* Mirror Image */
+(12,290), /* Mislead */
+(12,291), /* Misty Step */
+(12,292), /* Modify Memory */
+(12,293), /* Mold earth */
+(12,295), /* Mordenkainen’s Faithful Hound */
+(12,296), /* Mordenkainen’s Magnificent Mansion */
+(12,297), /* Mordenkainen’s Private Sanctum */
+(12,298), /* Mordenkainen’s Sword */
+(12,299), /* Move Earth */
+(12,300), /* Negative Energy Flood */
+(12,301), /* Nondetection */
+(12,302), /* Nystul’s Magic Aura */
+(12,303), /* Otiluke’s Freezing Sphere */
+(12,304), /* Otiluke’s Resilient Sphere */
+(12,305), /* Otto’s Irresistible Dance */
+(12,307), /* Passwall */
+(12,308), /* Phantasmal Force */
+(12,309), /* Phantasmal Killer */
+(12,310), /* Phantom Steed */
+(12,312), /* Planar Binding */
+(12,313), /* Plane Shift */
+(12,315), /* Poison Spray */
+(12,316), /* Polymorph */
+(12,318), /* Power Word Kill */
+(12,319), /* Power Word Pain */
+(12,320), /* Power Word Stun */
+(12,322), /* Prestidigitation */
+(12,325), /* Prismatic Spray */
+(12,326), /* Prismatic Wall */
+(12,328), /* Programmed Illusion */
+(12,329), /* Project Image */
+(12,330), /* Protection from Energy */
+(12,331), /* Protection from Evil and Good */
+(12,333), /* Psychic Scream */
+(12,335), /* Pyrotechnics */
+(12,337), /* Rary’s Telepathic Bond */
+(12,338), /* Ray of Enfeeblement */
+(12,339), /* Ray of Frost */
+(12,340), /* Ray of Sickness */
+(12,343), /* Remove Curse */
+(12,346), /* Reverse Gravity */
+(12,348), /* Rope Trick */
+(12,351), /* Scatter */
+(12,352), /* Scorching Ray */
+(12,353), /* Scrying */
+(12,355), /* See invisibility */
+(12,356), /* Seeming */
+(12,357), /* Sending */
+(12,358), /* Sequester */
+(12,359), /* Shadow Blade */
+(12,361), /* Shape Water */
+(12,362), /* Shapechange */
+(12,363), /* Shatter */
+(12,364), /* Shield */
+(12,367), /* Shocking Grasp */
+(12,368), /* Sickening Radiance */
+(12,370), /* Silent Image */
+(12,371), /* Simulacrum */
+(12,372), /* Skill Empowerment */
+(12,373), /* Skywrite */
+(12,374), /* Sleep */
+(12,375), /* Sleet Storm */
+(12,376), /* Slow */
+(12,377), /* Snare */
+(12,378), /* Snilloc’s Snowball Swarm */
+(12,379), /* Soul Cage */
+(12,384), /* Spider Climb */
+(12,389), /* Steel Wind Strike */
+(12,390), /* Stinking Cloud */
+(12,391), /* Stone Shape */
+(12,392), /* Stoneskin */
+(12,394), /* Storm Sphere */
+(12,395), /* Suggestion */
+(12,396), /* Summon Greater Demon */
+(12,397), /* Summon Lesser Demons */
+(12,398), /* Sunbeam */
+(12,399), /* Sunburst */
+(12,401), /* Sword Burst */
+(12,402), /* Symbol */
+(12,403), /* Synaptic Static */
+(12,404), /* Tasha’s Hideous Laughter */
+(12,405), /* Telekinesis */
+(12,406), /* Telepathy */
+(12,407), /* Teleport */
+(12,408), /* Teleportation Circle */
+(12,410), /* Tenser’s Floating Disk */
+(12,411), /* Tenser’s Transformation */
+(12,414), /* Thunder Step */
+(12,415), /* Thunderclap */
+(12,417), /* Thunderwave */
+(12,418), /* Tidal Wave */
+(12,419), /* Time Stop */
+(12,420), /* Tiny Servant */
+(12,421), /* Toll the Dead */
+(12,422), /* Tongues */
+(12,423), /* Transmute Rock */
+(12,426), /* True Polymorph */
+(12,428), /* True Seeing */
+(12,429), /* True Strike */
+(12,431), /* Unseen Servant */
+(12,432), /* Vampiric Touch */
+(12,434), /* Vitriolic Sphere */
+(12,435), /* Wall of Fire */
+(12,436), /* Wall of Force */
+(12,437), /* Wall of Ice */
+(12,438), /* Wall of Light */
+(12,439), /* Wall of Sand */
+(12,440), /* Wall of Stone */
+(12,442), /* Wall of Water */
+(12,444), /* Warding Wind */
+(12,445), /* Water Breathing */
+(12,447), /* Watery Sphere */
+(12,448), /* Web */
+(12,449), /* Weird */
+(12,450), /* Whirlwind */
+(12,451), /* Wind Walk */
+(12,453), /* Wish */
+(12,454); /* Witch Bolt */
+
+/* HOMEBREW CLASS VS SPELL */
+INSERT INTO `gameclass_has_spell` (`spell_id`, `gameclass_id`) VALUES
+(462, 12),
+(462, 8),
+(462, 10),
+(463, 3),
+(464, 2),
+(465, 3),
+(465, 7),
+(466, 2),
+(466, 4),
+(466, 12),
+(466, 8),
+(466, 10),
+(466, 11),
+(467, 2),
+(468, 2),
+(469, 3),
+(469, 4),
+(470, 7),
+(470, 3),
+(471, 2),
+(472, 12),
+(472, 10),
+(472, 8),
+(473, 4),
+(473, 12),
+(473, 10),
+(473, 11),
+(474, 3),
+(474, 12),
+(474, 11),
+(474, 10),
+(475, 2),
+(475, 3),
+(475, 4),
+(475, 12),
+(475, 10),
+(475, 11),
+(476, 2),
+(476, 12),
+(476, 10),
+(477, 3),
+(477, 4),
+(478, 3),
+(478, 4),
+(479, 3),
+(479, 7),
+(480, 2),
+(480, 12),
+(480, 8),
+(480, 10),
+(480, 11),
+(481, 2),
+(481, 12),
+(481, 10),
+(481, 11),
+(482, 7),
+(483, 12),
+(484, 8),
+(485, 3),
+(485, 7),
+(486, 12),
+(487, 12),
+(488, 3),
+(488, 7);
+
+
+
+
 
 
 INSERT INTO `tb_item` (`id`, `item_attunement`, `item_cursed`, `item_description`, `item_image`, `item_name`, `item_rarity`, `item_type`) VALUES 

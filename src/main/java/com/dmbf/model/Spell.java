@@ -4,12 +4,14 @@
 package com.dmbf.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -110,9 +112,27 @@ public class Spell extends BaseModel {
 	@RestResource(exported = false)
 	private Source source;
 	
-	@ManyToMany(mappedBy="allSpells")
+//	@ManyToMany(mappedBy="allSpells")
+	/*
+	 * Creating a unidiretional relationship to GameClass as we're not supposed 
+	 * to embrace any complex things regard classes for now and Spring is presenting
+	 * a bug with bidirectional relationships, still to be corrected, as stated here:
+	 * https://github.com/springfox/springfox/issues/2345
+	 */
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "gameclass_has_spell", joinColumns = {
+			@JoinColumn(name = "spell_id") }, inverseJoinColumns = { @JoinColumn(name = "gameclass_id") })
+	@RestResource(exported = false)
 	private List<GameClass> gameClasses;
 	
-
+//	public List<String> getGameClassesShortNames() {
+//		return this.getGameClasses().stream().map(GameClass::getShortName)
+//                .collect(Collectors.toList());
+//	}
+//	
+//	public List<String> getGameClassesNames() {
+//		return this.getGameClasses().stream().map(GameClass::getName)
+//                .collect(Collectors.toList());
+//	}
 	
 }

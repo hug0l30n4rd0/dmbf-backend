@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum SpellDuration {
-	CONCENTRATION		(1,"Concentration"),
+//	CONCENTRATION		(1,"Concentration"),
 	INSTANTANEOUS		(2,"Instantaneous"),
 	SPECIAL				(3,"Special"),
 	TIME				(4,"Time"),

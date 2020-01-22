@@ -15,8 +15,18 @@ public abstract class Item_ extends com.dmbf.model.BaseModel_ {
 	public static volatile SingularAttribute<Item, Boolean> attunement;
 	public static volatile SingularAttribute<Item, String> name;
 	public static volatile SingularAttribute<Item, String> description;
+	public static volatile SingularAttribute<Item, String> source;
 	public static volatile SingularAttribute<Item, ItemType> type;
 	public static volatile SingularAttribute<Item, ItemRarity> rarity;
+
+	public static final String IMAGE = "image";
+	public static final String CURSED = "cursed";
+	public static final String ATTUNEMENT = "attunement";
+	public static final String NAME = "name";
+	public static final String DESCRIPTION = "description";
+	public static final String SOURCE = "source";
+	public static final String TYPE = "type";
+	public static final String RARITY = "rarity";
 
 }
 

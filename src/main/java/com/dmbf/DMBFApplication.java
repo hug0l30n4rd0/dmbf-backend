@@ -14,18 +14,6 @@ import com.dmbf.persistence.BaseRepositoryImpl;
 @SpringBootApplication
 @EntityScan
 @EnableJpaRepositories(repositoryBaseClass = BaseRepositoryImpl.class)
-//public class DMBFApplication {
-//	
-//	public static void main(String[] args) {
-//		SpringApplication.run(DMBFApplication.class, args);
-//	}
-//	
-//	@Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//}
-
 public class DMBFApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

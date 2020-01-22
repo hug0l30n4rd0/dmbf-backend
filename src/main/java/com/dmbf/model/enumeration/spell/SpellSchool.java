@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.spell;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;

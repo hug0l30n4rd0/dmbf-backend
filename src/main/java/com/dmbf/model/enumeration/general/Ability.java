@@ -1,33 +1,35 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.general;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author hugosilva
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum SpellDuration {
-//	CONCENTRATION		(1,"Concentration"),
-	INSTANTANEOUS		(2,"Instantaneous"),
-	SPECIAL				(3,"Special"),
-	TIME				(4,"Time"),
-	UNTIL_DISPELLED		(5,"Until Dispelled"),
-	DISPELL_OR_TRIGGER	(6,"Until Dispelled or Triggered");
+public enum Ability {
+	STRENGTH		(1,"Strength","STR"),
+	DEXTERITY		(2,"Dexterity","DEX"),
+	CONSTITUTION	(3,"Constitution","CON"),
+	INTELLIGENCE	(4,"Intelligence","INT"),
+	WISDOM			(5,"Wisdom","WIS"),
+	CHARISMA		(6,"Charisma","CHA");
 	
-	private SpellDuration(Integer id, String name) {
+	
+	private Ability(Integer id, String name, String shortName) {
 		this.id = id;
 		this.name = name;
+		this.shortName = shortName;
 	}
 	
 	private Integer id;
 	private String name;
+	private String shortName;
 	
 //	@JsonValue
 	public Integer getId() {
@@ -37,14 +39,18 @@ public enum SpellDuration {
 		return name;
 	}
 	
+	public String getShortName() {
+		return shortName;
+	}
+	
 	@Override
 	public String toString() {
 		return this.name;
 	}
 	
 	@JsonCreator
-    public static SpellDuration forValues(@JsonProperty("id") String id) {
-		for (SpellDuration currEnum : SpellDuration.values()) {
+    public static Ability forValues(@JsonProperty("id") String id) {
+		for (Ability currEnum : Ability.values()) {
             if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }

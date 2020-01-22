@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.feat;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -12,20 +12,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum ItemType {
-	ARMOR		(1,"Armor"),
-	WEAPON		(2,"Weapon"),
-	SHIELD		(3,"Shield"),
-	RING		(4,"Ring"),
-	COLLAR		(5,"Collar/Necklace"),
-	CAPE		(6,"Cape/Cloak"),
-	BOOTS		(7,"Boots"),
-	GLOVES		(8,"Gloves/Bracers"),
-	AMMUNITION	(9,"Ammunition"),
-	OTHER		(10,"Other");
+public enum FeatPreRequisiteType {
+	OTHER		(1,"Other"),
+	ABILITY		(2,"Ability"),
+	LEVEL		(3,"Level"),
+	PROFICIENCY	(4,"Proficiency"),
+	RACE		(5,"Race"),
+	SIZE		(6,"Size");
 	
 	
-	private ItemType(Integer id, String name) {
+	private FeatPreRequisiteType(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -47,8 +43,8 @@ public enum ItemType {
 	}
 	
 	@JsonCreator
-	public static ItemType forValues(@JsonProperty("id") Integer id) {
-		for (ItemType currEnum : ItemType.values()) {
+	public static FeatPreRequisiteType forValues(@JsonProperty("id") Integer id) {
+		for (FeatPreRequisiteType currEnum : FeatPreRequisiteType.values()) {
 			if (Double.compare(currEnum.id, id) == 0) {
 				return currEnum;
 			}
@@ -58,8 +54,8 @@ public enum ItemType {
 	}
 	
 	@JsonCreator
-    public static ItemType forValues(@JsonProperty("id") String id) {
-        for (ItemType currEnum : ItemType.values()) {
+    public static FeatPreRequisiteType forValues(@JsonProperty("id") String id) {
+        for (FeatPreRequisiteType currEnum : FeatPreRequisiteType.values()) {
             if (Double.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }

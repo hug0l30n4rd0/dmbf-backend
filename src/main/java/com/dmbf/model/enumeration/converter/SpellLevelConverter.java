@@ -2,7 +2,7 @@ package com.dmbf.model.enumeration.converter;
 
 import javax.persistence.AttributeConverter;
 
-import com.dmbf.model.enumeration.SpellLevel;
+import com.dmbf.model.enumeration.spell.SpellLevel;
 
 /**
  * 

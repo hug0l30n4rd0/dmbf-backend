@@ -10,5 +10,7 @@ public abstract class BaseModel_ {
 
 	public static volatile SingularAttribute<BaseModel, Long> id;
 
+	public static final String ID = "id";
+
 }
 

@@ -1,23 +1,29 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.spell;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author hugosilva
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum RangeMetric {
-	FEET		(1,"Feet"),
-	MILE		(2,"Mile");
+public enum SpellCastingTime {
+	ACTION			(1,"Action"),
+	BONUS_ACTION	(2,"Bonus Action"),
+	HOUR			(3,"Hour"),
+	MINUTE			(4,"Minute"),
+	SPECIAL			(5,"Special"),
+	NO_ACTION		(6,"No Action"),
+	REACTION		(7,"Reaction");
 	
 	
-	private RangeMetric(Integer id, String name) {
+	private SpellCastingTime(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -39,8 +45,8 @@ public enum RangeMetric {
 	}
 	
 	@JsonCreator
-    public static RangeMetric forValues(@JsonProperty("id") String id) {
-		for (RangeMetric currEnum : RangeMetric.values()) {
+    public static SpellCastingTime forValues(@JsonProperty("id") String id) {
+		for (SpellCastingTime currEnum : SpellCastingTime.values()) {
             if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }

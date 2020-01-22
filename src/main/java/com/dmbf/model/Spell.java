@@ -17,18 +17,18 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import com.dmbf.model.enumeration.RangeMetric;
-import com.dmbf.model.enumeration.SpellCastingTime;
-import com.dmbf.model.enumeration.SpellDuration;
-import com.dmbf.model.enumeration.SpellDurationType;
-import com.dmbf.model.enumeration.SpellRange;
-import com.dmbf.model.enumeration.SpellSchool;
 import com.dmbf.model.enumeration.converter.RangeMetricConverter;
 import com.dmbf.model.enumeration.converter.SpellCastingTimeConverter;
 import com.dmbf.model.enumeration.converter.SpellDurationConverter;
 import com.dmbf.model.enumeration.converter.SpellDurationTypeConverter;
 import com.dmbf.model.enumeration.converter.SpellRangeConverter;
 import com.dmbf.model.enumeration.converter.SpellSchoolConverter;
+import com.dmbf.model.enumeration.general.RangeMetric;
+import com.dmbf.model.enumeration.spell.SpellCastingTime;
+import com.dmbf.model.enumeration.spell.SpellDuration;
+import com.dmbf.model.enumeration.spell.SpellDurationType;
+import com.dmbf.model.enumeration.spell.SpellRange;
+import com.dmbf.model.enumeration.spell.SpellSchool;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

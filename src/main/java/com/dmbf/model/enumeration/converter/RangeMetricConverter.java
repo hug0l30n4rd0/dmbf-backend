@@ -2,7 +2,7 @@ package com.dmbf.model.enumeration.converter;
 
 import javax.persistence.AttributeConverter;
 
-import com.dmbf.model.enumeration.RangeMetric;
+import com.dmbf.model.enumeration.general.RangeMetric;
 
 /**
  * 

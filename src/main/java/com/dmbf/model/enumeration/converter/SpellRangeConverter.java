@@ -2,8 +2,8 @@ package com.dmbf.model.enumeration.converter;
 
 import javax.persistence.AttributeConverter;
 
-import com.dmbf.model.enumeration.ItemType;
-import com.dmbf.model.enumeration.SpellRange;
+import com.dmbf.model.enumeration.item.ItemType;
+import com.dmbf.model.enumeration.spell.SpellRange;
 
 /**
  * 

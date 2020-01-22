@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dmbf.model.enumeration.ItemRarity;
-import com.dmbf.model.enumeration.ItemType;
-import com.dmbf.model.enumeration.SpellCastingTime;
-import com.dmbf.model.enumeration.SpellDuration;
-import com.dmbf.model.enumeration.SpellDurationType;
-import com.dmbf.model.enumeration.SpellRange;
-import com.dmbf.model.enumeration.SpellSchool;
+import com.dmbf.model.enumeration.item.ItemRarity;
+import com.dmbf.model.enumeration.item.ItemType;
+import com.dmbf.model.enumeration.spell.SpellCastingTime;
+import com.dmbf.model.enumeration.spell.SpellDuration;
+import com.dmbf.model.enumeration.spell.SpellDurationType;
+import com.dmbf.model.enumeration.spell.SpellRange;
+import com.dmbf.model.enumeration.spell.SpellSchool;
 
 import io.swagger.annotations.Api;
 

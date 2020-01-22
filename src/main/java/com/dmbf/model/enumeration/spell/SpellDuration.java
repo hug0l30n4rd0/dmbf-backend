@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.spell;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -13,16 +13,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum SpellRange {
-	SELF		(1,"Self"),
-	TOUCH		(2,"Touch"),
-	RANGED		(3,"Ranged"),
-	SIGHT		(4,"Sight"),
-	UNLIMITED	(5,"Unlimited"),
-	SPECIAL		(6,"Special");
+public enum SpellDuration {
+//	CONCENTRATION		(1,"Concentration"),
+	INSTANTANEOUS		(2,"Instantaneous"),
+	SPECIAL				(3,"Special"),
+	TIME				(4,"Time"),
+	UNTIL_DISPELLED		(5,"Until Dispelled"),
+	DISPELL_OR_TRIGGER	(6,"Until Dispelled or Triggered");
 	
-	
-	private SpellRange(Integer id, String name) {
+	private SpellDuration(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -44,8 +43,8 @@ public enum SpellRange {
 	}
 	
 	@JsonCreator
-    public static SpellRange forValues(@JsonProperty("id") String id) {
-		for (SpellRange currEnum : SpellRange.values()) {
+    public static SpellDuration forValues(@JsonProperty("id") String id) {
+		for (SpellDuration currEnum : SpellDuration.values()) {
             if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }

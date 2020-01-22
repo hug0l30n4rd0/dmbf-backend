@@ -1,31 +1,25 @@
 /**
  * 
  */
-package com.dmbf.model.enumeration;
+package com.dmbf.model.enumeration.spell;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * @author hugosilva
  *
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum SpellLevel {
-	CANTRIP	(1,"Cantrip"),
-	FIRST	(2,"1st"),
-	SECOND	(3,"2nd"),
-	THIRD	(4,"3rd"),
-	FOURTH	(5,"4th"),
-	FIFTH	(6,"5th"),
-	SIXTH	(7,"6th"),
-	SEVENTH	(8,"7th"),
-	EIGHTH	(9,"8th"),
-	NINETH	(10,"9th");
+public enum SpellDurationType {
+	ROUND	(1,"Round"),
+	MINUTE	(2,"Minute"),
+	HOUR	(3,"Hour"),
+	DAY		(4,"Day");
 	
-	
-	private SpellLevel(Integer id, String name) {
+	private SpellDurationType(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -33,6 +27,7 @@ public enum SpellLevel {
 	private Integer id;
 	private String name;
 	
+//	@JsonValue
 	public Integer getId() {
 		return id;
 	}
@@ -46,9 +41,9 @@ public enum SpellLevel {
 	}
 	
 	@JsonCreator
-    public static SpellLevel forValues(@JsonProperty("id") String id) {
-        for (SpellLevel currEnum : SpellLevel.values()) {
-        	 if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
+    public static SpellDurationType forValues(@JsonProperty("id") String id) {
+        for (SpellDurationType currEnum : SpellDurationType.values()) {
+            if (Integer.compare(currEnum.id, Integer.valueOf(id)) == 0) {
                 return currEnum;
             }
         }

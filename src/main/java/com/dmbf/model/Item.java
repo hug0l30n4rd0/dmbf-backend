@@ -7,10 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 
-import com.dmbf.model.enumeration.ItemRarity;
-import com.dmbf.model.enumeration.ItemType;
 import com.dmbf.model.enumeration.converter.ItemRarityConverter;
 import com.dmbf.model.enumeration.converter.ItemTypeConverter;
+import com.dmbf.model.enumeration.item.ItemRarity;
+import com.dmbf.model.enumeration.item.ItemType;
 
 import lombok.Data;
 import lombok.Getter;

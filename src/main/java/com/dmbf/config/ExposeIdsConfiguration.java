@@ -8,6 +8,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 import org.springframework.stereotype.Component;
 
 import com.dmbf.model.GameClass;
+import com.dmbf.model.Language;
 import com.dmbf.model.Source;
 import com.dmbf.model.Spell;
 
@@ -21,8 +22,9 @@ public class ExposeIdsConfiguration extends RepositoryRestConfigurerAdapter {
   @Override
   public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
     config.exposeIdsFor(
-    		Spell.class, 
+    		GameClass.class,
+    		Language.class,
     		Source.class, 
-    		GameClass.class);
+    		Spell.class);
   }
 }

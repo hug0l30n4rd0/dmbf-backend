@@ -1404,11 +1404,31 @@ INSERT INTO `gameclass_has_spell` (`spell_id`, `gameclass_id`) VALUES
 (488, 3),
 (488, 7);
 
-
-
-
-
-
 INSERT INTO `tb_item` (`id`, `item_attunement`, `item_cursed`, `item_description`, `item_image`, `item_name`, `item_rarity`, `item_type`) VALUES 
 ('1', b'1', b'1', 'This Red leather armor grants resistance to fire damage to it’s wearer, but also vulnerability to slashing and piercing damage. If the wearer is ever bleeding, the blood is absorbed by the armor and a sense of delight is detected by its wearer.', NULL, 'Demonskin Leather', '4', '4'), 
 ('2', b'0', b'0', 'This glossy black weapon is designed to pierce the toughest shells. You gain a +1 bonus to attack and damage rolls with this weapon and any damage dealt by this weapon ignores resistance and immunity of the target.', NULL, 'Admantine Weapon', '5', '5');
+
+
+INSERT INTO `tb_language`(`id`, `lang_name`) VALUES 
+(1,'Abyssal'),
+(2,'Aquan'),
+(3,'Auran'),
+(4,'Celestial'),
+(5,'Common'),
+(6,'Deep Speech'),
+(7,'Draconic'),
+(8,'Druidic'),
+(9,'Dwarvish'),
+(10,'Elvish'),
+(11,'Giant'),
+(12,'Gnomish'),
+(13,'Goblin'),
+(14,'Gnoll'),
+(15,'Halfling'),
+(16,'Ignan'),
+(17,'Infernal'),
+(18,'Orc'),
+(19,'Primordial'),
+(20,'Sylvan'),
+(21,'Terran'),
+(22,'Undercommon');
